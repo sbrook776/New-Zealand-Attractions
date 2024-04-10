@@ -1,0 +1,619 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>New Zealand Attractions Home Page</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="New Zealand Attractions" name="title" />
+		<meta content="Sean Brook" name="author" />
+		<meta content="Attractions, New Zealand" name="keywords" />
+		<link href="css/bootstrap.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/spinner.css" rel="stylesheet" />
+		<link
+			href="http://fonts.googleapis.com/css?family=Merienda+One"
+			rel="stylesheet"
+		/>
+		<link
+			href="http://fonts.googleapis.com/css?family=Oleo+Script"
+			rel="stylesheet"
+		/>
+		<link href="Images/nzIcon.gif" rel="icon" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="container-fluid">
+		<div id="navigation-container"></div>
+		<!-- Bootstrap Carousel -->
+		<div>
+			<div id="mySlider" class="carousel slide">
+				<div class="carousel-inner">
+					<div class="item active">
+						<img
+							alt="slide1"
+							class="img-responsive"
+							src="Images/corouselImages/lakeNightC.jpg"
+						/>
+						<div class="centerText">
+							DISCOVER NEW ZEALAND
+							<hr class="underline" />
+						</div>
+					</div>
+					<div class="item">
+						<img
+							alt="slide2"
+							class="img-responsive"
+							src="Images/corouselImages/mtCookWallpaper.jpg"
+						/>
+						<div class="centerText">
+							DISCOVER NEW ZEALAND
+							<hr class="underline" />
+						</div>
+					</div>
+					<div class="item">
+						<img
+							alt="slide3"
+							class="img-responsive"
+							src="Images/corouselImages/skyTowerNight.jpg"
+						/>
+						<div class="centerText">
+							DISCOVER NEW ZEALAND
+							<hr class="underline" />
+						</div>
+					</div>
+					<div class="item">
+						<img
+							alt="slide4"
+							class="img-responsive"
+							src="Images/corouselImages/MilfordSoundC.jpg"
+						/>
+						<div class="centerText">
+							DISCOVER NEW ZEALAND
+							<hr class="underline" />
+						</div>
+					</div>
+					<div class="item">
+						<img
+							alt="slide5"
+							class="img-responsive"
+							src="Images/corouselImages/QueensTownBaloon.jpg"
+						/>
+						<div class="centerText">
+							DISCOVER NEW ZEALAND
+							<hr class="underline" />
+						</div>
+					</div>
+				</div>
+				<!-- end of carousel-inner -->
+				<!-- left arrow control -->
+				<a class="carousel-control left" data-slide="prev" href="#mySlider">
+					<span class="glyphicon glyphicon-chevron-left myControl"></span
+				></a>
+				<!-- right arrow control -->
+				<a class="carousel-control right" data-slide="next" href="#mySlider">
+					<span class="glyphicon glyphicon-chevron-right myControl"></span
+				></a>
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#mySlider"></li>
+					<li data-slide-to="1" data-target="#mySlider"></li>
+					<li data-slide-to="2" data-target="#mySlider"></li>
+					<li data-slide-to="3" data-target="#mySlider"></li>
+					<li data-slide-to="4" data-target="#mySlider"></li>
+				</ol>
+				<!-- end of carousel slide -->
+			</div>
+			<!-- end of container Carousel-->
+		</div>
+		<h2 class="mainHeading">Kia Ora!</h2>
+		<h3 class="subHeading" style="margin-bottom: -20px">
+			Welcome to New Zealand
+		</h3>
+		<br />
+		<!-- start of Attractions -->
+		<div class="container homeBannerContainer" style="padding: 0px">
+			<img
+				alt="NorthIslandBanner"
+				class="nzBannerN"
+				src="Images/ImagesForHomepage/northIslandBanner.png"
+			/>
+			<h2 class="experienceNorthTitle">Experience the<br />North Island</h2>
+			<p class="NorthInfo">
+				Get a spectacular view from the top of the Auckland<br />
+				sky tower, visit the famed Hobbit houses at Hobbiton<br />or be
+				mesmerized by the glow worms at Waitomo caves
+			</p>
+			<div
+				class="skyTowerContainer"
+				onclick="showHomeEvent('skyTower','AUK', 'Auckland', 'North')"
+				onmouseover="mouseOverEffects('skyTower','white')"
+				onmouseout="mouseOutEffects('skyTower')"
+			>
+				<p id="skyTowerText" class="opacityText">Auckland<br />Sky Tower</p>
+				<div id="skyTowerBox" class="homeAttractionBox">
+					<img
+						id="skyTowerCircle"
+						alt="Auckland Sky Tower"
+						class="circleImg"
+						src="Images/ImagesForHomepage/aucklandSkyTowercrop.png"
+					/>
+				</div>
+			</div>
+			<div
+				class="hobbitonContainer"
+				onclick="showHomeEvent('hobbiton','WKO', 'Waikato', 'North')"
+				onmouseover="mouseOverEffects('hobbiton','white')"
+				onmouseout="mouseOutEffects('hobbiton')"
+			>
+				<p id="hobbitonText">Hobbiton</p>
+				<div id="hobbitonBox" class="homeAttractionBox">
+					<img
+						id="hobbitonCircle"
+						alt="Hobbiton"
+						class="circleImg"
+						src="Images/ImagesForHomepage/hobbiton1.jpg"
+					/>
+				</div>
+			</div>
+			<div
+				class="waitomoContainer"
+				onclick="showHomeEvent('waitomo','WKO', 'Waikato', 'North')"
+				onmouseover="mouseOverEffects('waitomo','white')"
+				onmouseout="mouseOutEffects('waitomo')"
+			>
+				<p id="waitomoText">Waitomo<br />Caves</p>
+				<div id="waitomoBox" class="homeAttractionBox">
+					<img
+						id="waitomoCircle"
+						alt="Waitomo Caves"
+						class="circleImg"
+						src="Images/ImagesForHomepage/waitomoCaves.jpg"
+					/>
+				</div>
+			</div>
+			<a
+				class="btn btn-sm animated-button slideNorth"
+				href="NorthIslandAttractions.html"
+			>
+				See More Attractions</a
+			>
+		</div>
+		<div class="container homeBannerContainer" style="padding: 0px">
+			<img
+				alt="SouthIslandBanner"
+				class="nzBannerS"
+				src="Images/ImagesForHomepage/southIslandBanner.png"
+			/>
+			<h2 class="experienceSouthTitle">Discover the<br />South Island</h2>
+			<p class="SouthInfo">
+				Visit the mysteriously spherical Moeraki boulders, <br />
+				the towering snow capped peak of Mt Cook<br />or marvel at the serene
+				natural beauty<br />of Fiordland National Park
+			</p>
+			<div
+				class="moerakiContainer"
+				onclick="showHomeEvent('moeraki','OTA', 'Otago', 'South')"
+				onmouseover="mouseOverEffects('moeraki','black')"
+				onmouseout="mouseOutEffects('moeraki')"
+			>
+				<p id="moerakiText">Moeraki<br />Boulders</p>
+				<div id="moerakiBox" class="homeAttractionBox">
+					<img
+						id="moerakiCircle"
+						alt="Moeraki Boulders"
+						class="circleImg"
+						src="Images/ImagesForHomepage/moerakiBoulderscropped.png"
+					/>
+				</div>
+			</div>
+			<div
+				class="fiordContainer"
+				onclick="showHomeEvent('fiord','STL', 'Southland', 'South')"
+				onmouseover="mouseOverEffects('fiord','black')"
+				onmouseout="mouseOutEffects('fiord')"
+			>
+				<p id="fiordText">Fiordland <br />National Park</p>
+				<div id="fiordBox" class="homeAttractionBox">
+					<img
+						id="fiordCircle"
+						alt="Fiordland National Park"
+						class="circleImg"
+						src="Images/ImagesForHomepage/fiordlandNationalParkcrop.png"
+					/>
+				</div>
+			</div>
+			<div
+				class="MtCookContainer"
+				onclick="showHomeEvent('MtCook','CAN', 'Canterbury', 'South')"
+				onmouseover="mouseOverEffects('MtCook','black')"
+				onmouseout="mouseOutEffects('MtCook')"
+			>
+				<p id="MtCookText">Mt Cook</p>
+				<div id="MtCookBox" class="homeAttractionBox">
+					<img
+						id="MtCookCircle"
+						alt="Mt Cook"
+						class="circleImg"
+						src="Images/ImagesForHomepage/mtCook2crop.png"
+					/>
+				</div>
+			</div>
+			<a
+				class="btn btn-sm animated-button slideSouth"
+				href="SouthIslandAttractions.html"
+			>
+				See More Attractions</a
+			>
+		</div>
+		<!-- end of Attractions -->
+		<!-- start of History -->
+		<h2 class="mainHeading">Journey with us through New Zealand History</h2>
+		<div class="container historyhomeContainer" style="padding: 0px">
+			<h2 class="historyMore">
+				Click the images below<br id="historyBreak" />to learn more about...
+			</h2>
+			<img
+				alt="old map"
+				class="oldMap"
+				src="Images/oldMapBackground.png"
+				style="width: 100%"
+			/>
+			<!-- <img
+				alt="New Zealand Timeline"
+				class="nzTimeline"
+				src="Images/oldMapBackgroundVerticalTimeline.png"
+			/> -->
+			<!-- Image Map Generated by http://www.image-map.net/ -->
+
+			<img
+				alt="New Zealand Timeline"
+				class="nzTimeline"
+				src="Images/oldMapBackgroundVerticalTimeline.png"
+			/>
+			<div
+				class="historyContainer"
+				onmouseover="mouseOverEffects('history','black')"
+				onmouseout="mouseOutEffects('history')"
+			>
+				<p id="historyText">New Zealand History</p>
+				<div id="historyBox" class="homeAttractionBox">
+					<a href="History.html">
+						<img
+							id="historyCircle"
+							alt="New Zealand History"
+							class="circleImg"
+							src="Images/timelineImages/nzHistory.jpg"
+					/></a>
+				</div>
+			</div>
+			<div
+				class="waitangiContainer"
+				onmouseover="mouseOverEffects('waitangi','black')"
+				onmouseout="mouseOutEffects('waitangi')"
+			>
+				<p id="waitangiText">Treaty of Waitangi</p>
+				<div id="waitangiBox" class="homeAttractionBox">
+					<a href="TreatyOfWaitangi.html">
+						<img
+							id="waitangiCircle"
+							alt="Treaty of Waitangi"
+							class="circleImg"
+							src="Images/timelineImages/signing2.jpg"
+					/></a>
+				</div>
+			</div>
+		</div>
+		<!-- end of History -->
+		<!-- start of Events -->
+		<h2 class="mainHeading">Find out what is on in New Zealand</h2>
+		<div class="container eventsContainer row">
+			<div class="col-xs-6 col-md-4 homeEvents">
+				<a href="Events.html#elementalAKL">
+					<img
+						alt="Elemental AKL"
+						class="boxImage img-responsive"
+						src="Images/ImagesForHomepage/elementalAKL2.jpg"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">Elemental AKL</h4>
+					<div class="eventDate"><strong>When:</strong> July 1st - 31st</div>
+					<div class="eventLocation"><strong>Location:</strong> Auckland</div>
+					<div class="eventDescription">
+						Auckland's newest winter festival Elemental AKL is awakening the
+						elements for a month-long celebration showcasing sensational
+						cuisine, dazzling lighting installations, impressive entertainment
+						and culture around the region. Elemental AKL draws on the elements
+						of air, fire, earth and water to unlock a unique and inspiring
+						calendar of more than 50 free and ticketed events. Elemental AKL is
+						set to transform eateries and bars, theatres, parks and islands,
+						public space and more throughout Tamaki Makaurau this July
+					</div>
+					<button onclick="window.location.href='ElementalAKL.html'">
+						MORE INFO
+					</button>
+					<a
+						href="https://www.aucklandnz.com/elementalfestival"
+						target="_blank"
+					>
+						<button>VISIT WEBSITE</button></a
+					>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-4 homeEvents">
+				<a href="WorldOfWearableArts.html">
+					<img
+						alt="World of Wearable Arts Show 2019"
+						class="boxImage img-responsive"
+						src="Images/Events/worldOfWearableArts.jpg"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">World of Wearable Arts Show</h4>
+					<div class="eventDate">
+						<strong>When:</strong> September 26th - October 13th
+					</div>
+					<div class="eventLocation"><strong>Location:</strong> Wellington</div>
+					<div class="eventDescription">
+						World of WearableArt combines an international wearable art
+						competition with a spectacular stage show held in Wellington each
+						September and October. Celebrating its 30th anniversary show in
+						2018, New Zealand’s single largest theatrical production attracts
+						around 60,000 people each year to experience this unique,
+						extravagant show like no other. At the heart of the World of
+						WearableArt Awards Show (WOW) is the international competition; a
+						unique platform for designers and artists to share and showcase
+						creativity and inspiration, expand horizons through global
+						connections, experiment with new techniques and technologies and
+						build on professional portfolios of design work.
+					</div>
+					<button onclick="window.location.href='WorldOfWearableArts.html'">
+						MORE INFO
+					</button>
+					<a href="https://www.worldofwearableart.com/" target="_blank">
+						<button>VISIT WEBSITE</button></a
+					>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-4 homeEvents">
+				<a href="CRCSpeedShow.html">
+					<img
+						alt="CRC Speedshow 2019"
+						class="boxImage img-responsive"
+						src="Images/Events/speedShow.jpg"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">CRC Speedshow</h4>
+					<div class="eventDate"><strong>When:</strong> July 20th - 21st</div>
+					<div class="eventLocation"><strong>Location:</strong> Auckland</div>
+					<div class="eventDescription">
+						CRC Speedshow 2019 – New Zealand’s Ultimate Automotive Playground!
+						Fuel your passion for cars, motorsport, automotive products,
+						specialist services, live action, meet the legendary Chip Foose and
+						so much more! The 13th edition of CRC Speedshow takes place over the
+						weekend 20th and 21st of July 2019. It will be a spectacular
+						celebration showcasing the finest, fastest and coolest new cars,
+						race cars, classics cars, motorsport celebrities, wild hot rods,
+						muscle cars and custom creations from around New Zealand and the
+						world.
+					</div>
+					<button onclick="window.location.href='CRCSpeedShow.html'">
+						MORE INFO</button
+					><a href="https://www.speedshow.co.nz/" target="_blank">
+						<button>VISIT WEBSITE</button></a
+					>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-4 homeEvents">
+				<a href="ChristchurchBrickShow.html">
+					<img
+						alt="Christchurch Brick Show"
+						class="boxImage img-responsive"
+						src="Images/ImagesForHomepage/christchurchBrickShow.jpg.png"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">Christchurch Brick Show</h4>
+					<div class="eventDate"><strong>When:</strong> July 13th - 14th</div>
+					<div class="eventLocation">
+						<strong>Location:</strong> Christchurch
+					</div>
+					<div class="eventDescription">
+						This event is still the biggest LEGO show of its kind in New
+						Zealand! Now with more space than ever before, the Christchurch
+						Brick Show will exhibit amazing LEGO models for all age groups in
+						4,000 square meters of space at the Horncastle Arena. Over 200
+						enthusiasts and collectors will show their designs, collections and
+						contraptions to inspire creativity and innovation. Children will
+						have the opportunity to go hands-on with various LEGO focused
+						activities in Imagination Station’s huge build and learn zone,
+						sponsored by Mitre 10 Mega. Activities include building spaces,
+						mechanics benches, mosaic walls, gaming area, remote control LEGO
+						vehicles, ramp races (from 4 meters high!) and more!
+					</div>
+					<button onclick="window.location.href='ChristchurchBrickShow.html'">
+						MORE INFO
+					</button>
+					<a href="https://christchurchbrickshow.nz/" target="_blank"
+						><button>VISIT WEBSITE</button></a
+					>
+				</div>
+			</div>
+			<div class="homeEvents col-xs-6 col-md-4">
+				<a href="Rhythm&Alps.html">
+					<img
+						alt="Rhythm &amp; Alps"
+						class="boxImage img-responsive"
+						src="Images/ImagesForHomepage/rhythm&Alps2.jpg"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">Rhythm &amp; Alps</h4>
+					<div class="eventDate">
+						<strong>When:</strong> December 29th - 31st
+					</div>
+					<div class="eventLocation"><strong>Location:</strong> Wanaka</div>
+					<div class="eventDescription">
+						Rhythm and Alps 2019 runs over three nights from 29th Dec – 1st Jan
+						2019. Situated in the stunning Cardrona Valley, in the mighty
+						Southern Alps of New Zealand, the festival is just a 40-minute drive
+						from Queenstown and 15 minutes from Wanaka. Rhythm &amp; Alps is the
+						premier South Island music festival; with up to 10,000 party-goers
+						joining us from all over the world. We have a line up of over 50
+						international and local acts that will be performing across four
+						incredible stages (they are rad- trust us), accompanied by the best
+						sound and lighting production New Zealand has to offer! We are
+						expecting to sell out this year- and with limited camping places, be
+						sure to lock in your tickets now!
+					</div>
+					<button onclick="window.location.href='Rhythm&amp;Alps.html'">
+						MORE INFO</button
+					><a href="https://www.rhythmandalps.co.nz" target="_blank">
+						<button>VISIT WEBSITE</button></a
+					>
+				</div>
+			</div>
+			<div class="homeEvents col-xs-6 col-md-4">
+				<a href="QueenstownWinterFestival.html">
+					<img
+						alt="Queenstown Winter Festival"
+						class="boxImage img-responsive"
+						src="Images/Events/queenstownWinterFestivalsmall.png"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">Queenstown Winter Festival</h4>
+					<div class="eventDate"><strong>When:</strong> June 20th - 23rd</div>
+					<div class="eventLocation"><strong>Location:</strong> Queenstown</div>
+					<div class="eventDescription">
+						New Zealand’s winter has started with one helluva party for the last
+						44 years, and with 2019 being the Real Journeys Queenstown Winter
+						Festival’s 45th birthday we are laying the celebrations on thick and
+						fast. March 12th marks our 100 day count down and all your old
+						favourites remain but this year we turn up the volume to 11 with
+						some rather large birthday plans. Get your polar plunge wings
+						prepped for the icy Wakatipu during the MoreFM Day on the Bay, train
+						your best friend to join in on the legendary 1.2km long Monteith’s
+						Dog Derby and set an alarm for April 16th as that’s when our
+						programme drops which is bursting with an epic music line up
+						alongside some enviable events that celebrate and showcase our
+						unique and beautiful wintery region.
+					</div>
+					<button
+						onclick="window.location.href='QueenstownWinterFestival.html'"
+					>
+						MORE INFO
+					</button>
+					<a href="https://www.winterfestival.co.nz/" target="_blank"
+						><button>VISIT WEBSITE</button></a
+					>
+				</div>
+			</div>
+			<button id="seeMore" onclick="window.location.href='Events.html'">
+				SEE MORE EVENTS
+			</button>
+		</div>
+		<!-- end of events -->
+		<!-- Modal for #myContact -->
+		<div id="contactModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modalHeader">Contact Us</h2>
+					</div>
+					<div class="modal-body">
+						<form id="myForm" method="post" name="myForm">
+							<ul>
+								<li>
+									<label>First Name:</label
+									><input name="firstName" size="30" type="text" />
+								</li>
+								<li class="nolabel">
+									<span id="firstName_error" class="error_msg"></span>
+								</li>
+								<li>
+									<label>Last Name:</label
+									><input name="lastName" size="30" type="text" />
+								</li>
+								<li class="nolabel">
+									<span id="lastName_error" class="error_msg"></span>
+								</li>
+								<li>
+									<label>Email:</label
+									><input name="email" size="30" type="text" />
+								</li>
+								<li class="nolabel">
+									<span id="email_error" class="error_msg"></span>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<label>Topic: </label
+									><select name="topic">
+										<option value="0">---------- Select one ---------</option>
+										<option value="1">Website Feedback</option>
+										<option value="2">Report a Problem</option>
+										<option value="3">Other</option>
+									</select>
+								</li>
+								<li class="nolabel">
+									<span id="topic_error" class="error_msg"></span>
+								</li>
+								<li><label style="width: 250px">Message:</label></li>
+								<li><textarea name="message"></textarea></li>
+								<li><span id="message_error" class="error_msg"></span></li>
+							</ul>
+							<div class="modal-footer">
+								<input
+									id="submit"
+									class="btn btn-info pull-left"
+									onclick="formValidations(); thankYou(); return false;"
+									type="submit"
+									value="Submit"
+								/>
+								<input
+									class="btn btn-info pull-left"
+									onclick="clearForm()"
+									type="button"
+									value="Reset"
+								/>
+								<a
+									class="btn btn-info pull-right"
+									data-dismiss="modal"
+									onclick="clearForm()"
+								>
+									Close</a
+								>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- end of modal-content -->
+		</div>
+		<!-- end of modal #contactModal -->
+		<!-- thankyou Modal -->
+		<div id="thankYou" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modalHeader">Thank You!</h2>
+					</div>
+					<div class="modal-body">
+						<h4 class="thankyouFeedback">
+							Thank you for your feedback! We will contact you as soon as we
+							can!
+						</h4>
+						<div class="modal-footer">
+							<a class="btn btn-info pull-right" data-dismiss="modal">Close</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of modal-content -->
+		</div>
+		<!-- end of modal #thankYou -->
+		<div id="footer-Container"></div>
+		<div class="spinner"></div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

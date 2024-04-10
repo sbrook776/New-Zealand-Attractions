@@ -1,0 +1,377 @@
+{
+    "NorthIsland": {
+      "Regions": {
+        "Auckland": {
+          "RegionName": "Auckland",
+          "RegionCode": "Auckland",
+          "MainCities": "Auckland",
+          "Population": "1,693,000 (2024)",
+          "LandArea": "4,941.13 km2",
+          "Coordinates": "36°54′S 174°47′E",
+          "Information":"The Auckland Region (Māori: Tāmaki-makau-rau) is one of the sixteen regions of New Zealand, named for the city of Auckland, the country's largest urban area. The region encompasses the Auckland metropolitan area, smaller towns, rural areas, and the islands of the Hauraki Gulf. Containing 35 percent of the nation's residents, it has by far the largest population and economy of any region of New Zealand, but the second-smallest land area. On the mainland, the region extends from the mouth of the Kaipara Harbour in the north across the southern stretches of the Northland Peninsula, past the Waitakere Ranges and the isthmus of Auckland and across the low-lying land surrounding the Manukau Harbour. The region ends within a few kilometres of the mouth of the Waikato River.",
+          "BannerImg": "Images/gallery/Attractions/regions/auckland.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/auckland.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Piha Beach"],
+              "AttractionDescription": "Piha is one of, if not THE most famous beaches in New Zealand. It is reknowned for its superb scenic beauty and its surf, all just 40 minutes drive from Auckland CBD. Piha has black iron sand swept up the coast from the entrance to the Waikato River, the sand produced by the eruption of Taupo eons ago. It is a small bay, with large remnant volcanic rocky islands to south and north. The southern end of Piha beach is guarded by Taitomo Island or Camel Rock, with further south, The Gap. The northern end of the beach is guarded by Lion Rock or Whakaari.",
+              "AttractionImg": "Images/NorthIslandAttractions/pihaBeach.png"
+            },
+            {
+              "AttractionName": ["Rainbows End"],
+              "AttractionDescription": "Rainbow's End is a Theme Park in Auckland, New Zealand. With over 20 rides and attractions, there's something for everyone and the park is open every day except Christmas Day. Rainbow's End is a great place for weekend fun, kids birthday parties and spending some fun time with your family and friends! You pay one entry price which covers all your rides as many times as you like! Kidz Kingdom is also at Rainbow's End, with lots of rides and attractions especially for children 8 years and under. Kidz Kingdom is a fun place to play and very popular for kids birthday parties. Only 20 mins from Auckland CBD we are conveniently located, with free parking or a bus stop close by at Manukau train station. See you soon at Rainbow's End!",
+              "AttractionImg": "Images/NorthIslandAttractions/rainbowsEnd.png"
+            },
+            {
+              "AttractionName": ["Sky Tower","skyTower"],
+              "AttractionDescription": "At 328 metres, it is the tallest man-made structure in New Zealand and offers breathtaking views for up to 80 kilometres in every direction. Travel up in the glass-fronted lifts to one of the three spectacular viewing platforms, or for more thrills and excitement, SkyWalk round the pergola at 192 metres up or SkyJump off the Tower! If dining with a view is what you're after, then you're spoilt for choice with three restaurants and cafes up the Sky Tower - Orbit 360˚ Dining revolving restaurant, the superbly chic and elegant The Sugar Club or relax with your coffee, cheese board or ice cream at the Sky Café.",
+              "AttractionImg": "Images/NorthIslandAttractions/aucklandSkyTower2.jpg"
+            }
+          ]
+        },
+        "BayOfPlenty": {
+          "RegionName": "Bay Of Plenty",
+          "RegionCode": "BayOfPlenty",
+          "MainCities": "Tauranga, Rotorua, Whakatane, Mount Maunganui",
+          "Population": "354,100",
+          "LandArea": "12,231 km2",
+          "Coordinates": "38°S 177°E",
+          "Information":"The Bay of Plenty (Māori: Te Moana-a-Toi) is a bight in the northern coast of New Zealand's North Island. It stretches 260 km from the Coromandel Peninsula in the west to Cape Runaway in the east. The Bay of Plenty Region is situated around this body of water, also incorporating several large islands in the bay. The bay was named by James Cook after he noticed the abundant food supplies at several Māori villages there, in stark contrast to the earlier observations he had made in Poverty Bay. The Bay of Plenty region covers 12,200 km² of land and 9,500 km² of coastal marine area. It extends along the eastern coast of the North Island, from the base of the Coromandel Peninsula in the west to Cape Runaway in the east.",
+          "BannerImg": "Images/gallery/Attractions/regions/bayOfPlenty.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/bayofPlenty.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Rotorua Thermal Pools"],
+              "AttractionDescription": "Rotorua's volcanic activity has drawn visitors to the region for generations and when it comes to things to do in Rotorua, no visit is complete without exploring its spectacular thermal parks and attractions. You will be impressed and amazed by Rotorua's geothermal features including spouting geysers, bubbling mud pools and colourful sinter terraces. Kuirau Park is only minutes walk from the central city and is a geothermal wonderland. The Park is unique for its geothermal features including mud pools, hot pools and freely accessible public foot pools.",
+              "AttractionImg": "Images/NorthIslandAttractions/rotoruaThermalPools.jpg"
+            },
+            {
+              "AttractionName": ["White Island"],
+              "AttractionDescription": "White Island (Whakaari) lies 49km offshore from Whakatane and 91km from the coast of Tauranga, and is one of the world’s most accessible volcanos. Most of this geological giant lies underneath the water but the top 321m sticks out above the ocean, forming a circular island that’s approximately 2km wide. Its Maori name, Whakaari, means “the dramatic volcano”. It was subsequently named White Island by Captain James Cook during his 1769 voyage because it always appeared to be covered in cloud. On a clear day you can still see billowing clouds of steam rising out of White Island’s vent from all along the Eastern Bay of Plenty’s coastline. But you need to get up close to truly experience this force of nature.",
+              "AttractionImg": "Images/NorthIslandAttractions/whiteIsland.jpg"
+            }
+          ]
+        },
+        "Gisborne": {
+          "RegionName": "Gisborne",
+          "RegionCode": "Gisborne",
+          "MainCities": "Gisborne",
+          "Population": "52,600",
+          "LandArea": "8,385.29 km2",
+          "Coordinates": "38°40′00″S 178°01′00″E",
+          "Information":"The Gisborne District (Māori: Te Tai Rāwhiti) is an area of northeastern New Zealand governed by the Gisborne District Council. A unitary authority (with the combined powers of a district and regional council), it is also known as the Gisborne Region. It is named after its largest settlement, the city of Gisborne. The region is also commonly referred to as the East Coast. The region is commonly divided into the East Cape and Poverty Bay. It is bounded by mountain ranges to the west, rugged country to the south, and faces east onto the Pacific Ocean. The district council and main administration centre is located in Fitzherbert Street, Gisborne.",
+          "BannerImg": "Images/gallery/Attractions/regions/gisborne.png",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/gisborne.png",
+          "Attractions": [
+            {
+              "AttractionName": ["East Cape Lighthouse"],
+              "AttractionDescription": "The East Cape Lighthouse is owned and operated by Maritime New Zealand and is located on Otiki Hill above East Cape, approximately 21 kilometres to the east of Te Araroa. The lighthouse marks the easternmost point on the North Island of New Zealand. Climb the 800 or so steps to the top. It's a steep climb but really worth it once you get to the top for the spectacular views. The lighthouse was originally constructed on nearby East Island. However the island was difficult to access. Four men died during tower construction when their boat capsized and the site proved to be susceptible to earthquakes and subsequent landslips. In 1920 a decision was made to relocate the light to the mainland and in April 1922, the light was extinguished and then relit at its current location in December of that year.",
+              "AttractionImg": "Images/NorthIslandAttractions/EastCapeLighthouse.jpg"
+            },
+            {
+              "AttractionName": ["Tairawhiti Museum"],
+              "AttractionDescription": "Tairawhiti Museum and Art Gallery has a reputation as one of the most innovative regional museums in New Zealand. Our vision is to be an integral part of the Tairawhiti community and to stimulate passion for the stories of our region. Entry is free for local residents and $5 for visitors. Entry is free for children 12 years and under and Friends of the Museum. The Exhibit Cafe is open for lunches, brunches, morning and afternoon teas. A wide menu is available and changes with the seasons. The cafe is open from 10am - 3.30pm Monday to Friday, and 10am - 2pm on Saturdays. The Tairawhiti Museum shop stocks a high-quality range of gifts. We pride ourselves on supporting local artists and makers.",
+              "AttractionImg": "Images/NorthIslandAttractions/tairawhitiMuseum.jpg"
+            }
+          ]
+        },
+        "Hawke'sBay": {
+          "RegionName": "Hawke's Bay",
+          "RegionCode": "HawkesBay",
+          "MainCities": "Hastings, Napier",
+          "Population": "184,800",
+          "LandArea": "14,139.15 km2",
+          "Coordinates": "39°25′S 176°49′E",
+          "Information": "Hawke's Bay Region (Māori: Te Matau-a-Māui) is a region of New Zealand on the east coast of the North Island. It is governed by Hawke's Bay Regional Council, which sits in the city of Napier. The region's name derives from Hawke Bay, which was named by Captain James Cook in honour of Admiral Edward Hawke. The Hawke's Bay region includes the hilly coastal land around the northern and central bay, the floodplains of the Wairoa River in the north, the wide fertile Heretaunga Plains around Hastings in the south, and a hilly interior stretching up into the Kaweka and Ruahine Ranges. The prominent peak Taraponui is located inland.",
+          "BannerImg": "Images/gallery/Attractions/regions/hawkesBay.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/hawkesBay.png ",
+          "Attractions": [
+            {
+              "AttractionName": ["Splash Planet"],
+              "AttractionDescription": "Splash Planet is New Zealand’s only water theme park and is a beloved Hawke’s Bay destination where generations of families have made lifetime memories. Offering an unrivalled selection of theme park rides and water attractions, Splash Planet is the perfect destination for the whole family! This year the Pirate Play Feature in Toddler Island will be unveiled and is sure to keep the young ones entertained all day. Opened originally as Fantasyland in 1968, the park is now transformed into the funtastic water theme park which spreads over 6.5 hectares. Where else can you experience great kid’s attractions, white knuckle water slides, special entertainment — all in the same day!",
+              "AttractionImg": "Images/NorthIslandAttractions/splashPlanet.jpg"
+            },
+            {
+              "AttractionName": ["The National Aquarium of New Zealand"],
+              "AttractionDescription": "The National Aquarium of New Zealand, on Napier’s Marine Parade, is home to over 100 rich and diverse saltwater, freshwater and land animal exhibits from New Zealand and around the world. You can view native saltwater and freshwater species, as well as exotic reef and deep-sea fish from around the world. Meet the famous Naughty and Good Little Penguins! The kiwi, tuatara and penguin enclosures provide an insight into New Zealand's most precious species. Also on exhibition are species from the Americas, Asia and Australia, including piranhas. Allow one to two hours to make the most of your visit or book a close encounter with our Little Penguins, Piranha, Tuatara or Kiwi. Open every day (except Christmas Day) from 9am to 5pm.",
+              "AttractionImg": "Images/NorthIslandAttractions/nationalAquarium.jpg"
+            }
+          ]
+        },
+        "Manwatu-Wanganui": {
+          "RegionName": "Manwatu-Wanganui",
+          "RegionCode": "Manawatu",
+          "MainCities": "Palmerston North, Whanganui",
+          "Population": "260,900",
+          "LandArea": "22,220.67 km2",
+          "Coordinates": "39.6°S 175.6°E",
+          "Information": "Manawatu-Wanganui (Māori: Manawatū-Whanganui) is a region in the lower half of the North Island of New Zealand, whose main population centres are the cities of Palmerston North and Whanganui. It is administered by the Manawatu-Wanganui Regional Council, which for trading purposes is known as Horizons Regional Council. The region is dominated and defined by two significant river catchments, the Whanganui and the Manawatu. The Whanganui River, in the northwest, is the longest navigable river in New Zealand. The river was extremely important to early Māori as it was the southern link in a chain of waterways that spanned almost two-thirds of the North Island. It was one of the chief areas of Māori settlement with its easily fortified cliffs and ample food supplies. Legends emphasise the importance of the river and it remains sacred to Whanganui iwi.",
+          "BannerImg": "Images/gallery/Attractions/regions/Manawatu.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/Manwatu-Wanganui.png",
+          "Attractions": [
+            {
+              "AttractionName": ["The National Army Museum"],
+              "AttractionDescription": "The National Army Museum, is an army war museum in Waiouru, New Zealand, providing access to a unique collection of military exhibits, vehicles, memorabilia and public research material. The Museum is guardian to many of our national treasures, the displays are exceptional, the experience unforgettable.The Museum's Military Archive & Research Library is one of the leading military research centres in New Zealand. The Museum Gift Shop has an assortment of quality products for any special occasion. Kidz HQ is an interactive area for the children to enjoy; with puzzles, dress up and so much more. Our Cafe offers an array of tempting morsels to satisfy your taste buds.The National Army Museum open from 9.00am - 4.30pm seven days a week.",
+              "AttractionImg": "Images/NorthIslandAttractions/nationalArmyMuseum2.png"
+            },
+            {
+              "AttractionName": ["Tongariro National Park"],
+              "AttractionDescription": "With its ruggedly diverse landscape, from volcanic peaks to lush native bush and rivers, the Tongariro National Park World Heritage Site is a natural wonder that beams quintessential New Zealand. Situated in the middle of the North Island, south of Lake Taupo, and covering almost 80,000 hectares, the Tongariro National Park World Heritage site is easily accessible from a variety of neighbouring towns. Getting to the park is easy, with good quality roads complete with stunning scenery to enjoy along the way. The starting point of the Tongariro Alpine Crossing, as well as the Whakapapa ski area at Mount Ruapehu, are both 20 to 35mins from National Park Village, 45mins to 1hr from Ohakune, Turangi or Taumarunui and between 1hr20 and 1hr35 from Lake Taupo township.",
+              "AttractionImg": "Images/NorthIslandAttractions/tongarironationalParkWinter.png"
+            }
+          ]
+        },
+        "Northland": {
+          "RegionName": "Northland",
+          "RegionCode": "Northland",
+          "MainCities": "New Plymouth",
+          "Population": "203,900",
+          "LandArea": "13,789 km2",
+          "Coordinates": "35.4136° S 173.9321° E",
+          "Information": "The Northland region occupies the northern 80% (265 km) of the 330 km&nbsp;Northland Peninsula, the southernmost part of which is in the&nbsp;Auckland Region.&nbsp;Stretching from a line at which the peninsula narrows to a width of just 15 km a little north of the town of&nbsp;Wellsford, Northland Region extends north to the tip of the Northland Peninsula, covering an area of 13,940&nbsp;km2, a little over five per cent of the country's total area. It is bounded to the west by the&nbsp;Tasman Sea, and to the east by the Pacific Ocean. The land is predominantly rolling hill country. Farming and forestry occupy over half of the land and are two of the region's main industries.",
+          "BannerImg": "Images/gallery/Attractions/regions/Northland.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/northland.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Ninety Mile Beach"],
+              "AttractionDescription": "One of the longest stretches of beach in New Zealand, Ninety Mile Beach may not be exactly 90 miles long – but it’s not short on natural beauty or exciting things to do. The beach stretches from just west of Kaitaia all the way to Cape Reinga, a long ribbon of sand along the Aupouri Peninsula. The starting point is the headland of Reef Point and at the other end you will find Scott Point, five kilometres south of Cape Maria van Diemen. It’s known for spectacular sunsets and for having one of the best left-hand surf breaks in the world. The beach is officially a highway, but it’s only suitable for four wheel drive vehicles and when the tide is high it’s impossible to drive on.",
+              "AttractionImg": "Images/NorthIslandAttractions/90MileBeach.jpg"
+            },
+            {
+              "AttractionName": ["Waitangi Treaty Grounds"],
+              "AttractionDescription": "An absolute ‘must-do’ for all visitors to New Zealand, the award-winning Waitangi Treaty Grounds is one of our nation’s premier attractions and tells New Zealand’s story of two peoples coming together as one, under the Treaty of Waitangi, Te Tiriti o Waitangi. Enjoy an inspiring and interactive full day experience through Waitangi’s contemporary museum, powerful Māori cultural performances in an authentic Meeting House, entertaining guided tours, engaging visitor centre, lush native forest and gardens, inspiring art gallery and carving studio, traditional Māori waka (canoe) and hāngi, tranquil café and so much more, all with stunning views over the Bay of Islands.",
+              "AttractionImg": "Images/NorthIslandAttractions/waitangi.png"
+            }
+          ]
+        },
+        "Taranaki": {
+          "RegionName": "Taranaki",
+          "RegionCode": "Taranaki",
+          "MainCities": "Whangarei, Kerikeri",
+          "Population": "128,700",
+          "LandArea": "7,257 km2",
+          "Coordinates": "39.3538° S 174.4383° E",
+          "Information": "Taranaki is a region in the west of New Zealand's North Island, administered by the Taranaki Regional Council. It is named after its main geographical feature, the stratovolcano of Mount Taranaki. The main centre is the city of New Plymouth. The New Plymouth District is home to more than 65 per cent of the population of Taranaki. New Plymouth is in North Taranaki along with Inglewood and Waitara. South Taranaki towns include Hawera, Stratford, Eltham and Opunake. Taranaki is on the west coast of the North Island, surrounding the volcanic peak of Mount Taranaki. The region covers an area of 7258 km². Its large bays north-west and south-west of Cape Egmont are the prosaically named North Taranaki Bight and South Taranaki Bight.",
+          "BannerImg": "Images/gallery/Attractions/regions/NewPlymouth.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/taranaki.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Mount Taranaki"],
+              "AttractionDescription": "Mount Taranaki (or Mount Egmont as it is also known) is in Egmont National Park in the Taranaki region in the south-west of the north island. This beautiful national park is home to lush waterfalls, rainforests and of course, New Zealand's most perfectly formed volcano. Mount Taranaki is 2,518 meters high and is the second highest peak in the North Island. It last erupted in 1854 and erupts on average every 90 years. Mount Taranaki is popular with hikers and climbers as it is an achievable (though challenging) summit for non-mountaineers. During the winter months, summit climbs are for experienced snow and ice climbers only. Walking tracks below the summit are extensive, ranging from strolls to multi-day hikes. There is also a skifield on the eastern slopes (season runs from June to October).",
+              "AttractionImg": "Images/NorthIslandAttractions/mtTaranaki.jpg"
+            },
+            {
+              "AttractionName": ["Three Sisters"],
+              "AttractionDescription": "On the North Taranaki coast, near Tongaporutu, you can see two (formerly three) 25 metre rock formations known as the Three Sisters. Another spectacular formation called Elephant Rock once stood alongside the sisters, before losing its trunk to erosion in 2016. Interestingly, there were four sisters at the turn of the century, but the sea is claiming them one at a time. For great views of the Three Sisters, turn down Pilot Road, which is on the seaward side of State Highway 3 north of the Tongaporutu Bridge. If you want to get down on the sand with the formations, turn off South Highway 3 down Clifton Road, which is south of the Tongaporutu Bridge. At low tide you can walk alongside the river and around the point to find the formations. In nearby caves you can also view a rock drawing of a curious six-toed foot.",
+              "AttractionImg": "Images/NorthIslandAttractions/threeSisters.jpg"
+            }
+          ]
+        },
+        "Waikato": {
+          "RegionName": "Waikato",
+          "RegionCode": "Waikato",
+          "MainCities": "Hamilton",
+          "Population": "522,600",
+          "LandArea": "23,901.09 km2",
+          "Coordinates": "37.6191° S 175.0233° E",
+          "Information": "Waikato is a local government region of the upper North Island of New Zealand. It covers the Waikato District, Hauraki, Coromandel Peninsula, the northern King Country, much of the Taupo District, and parts of Rotorua District. It is governed by the Waikato Regional Council.<br /><br />The region stretches from Coromandel Peninsula in the north, to the north-eastern slopes of Mount Ruapehu in the south, and spans the North Island from the west coast, through the Waikato and Hauraki to Coromandel Peninsula on the east coast. Broadly, the extent of the region is the Waikato River catchment. Other major catchments are those of the Waihou, Piako, Awakino and Mokau rivers. The region is bounded by Auckland on the north, Bay of Plenty on the east, Hawke's Bay on the south-east, and Manawatu-Wanganui and Taranaki on the south.",
+          "BannerImg": "Images/gallery/Attractions/regions/waikato.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/waikato.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Hobbiton","hobbiton"],
+              "AttractionDescription": "New Zealand has become synonymous with the Middle-earth of JRR Tolkien's famous books since the release of the blockbuster Lord of the Rings film trilogy, directed by New Zealander Sir Peter Jackson. Scattered around New Zealand are spots that were transformed into sets for the three movies and the subsequent Hobbit sequels. One of the most famous was that of The Shire, home to the plucky hobbits, and while filming has finished, today you can still visit The Shire and see where the movie magic was created. Tucked away on picturesque private farmland near the small town of Matamata in the North Island's Waikato region is the Hobbiton Movie Set, which draws visitors from around the world for guided Hobbiton tours to see the famous Hobbit holes, along with the Mill and The Green Dragon and other sights you'll recognise from the films.",
+              "AttractionImg": "Images/NorthIslandAttractions/hobbiton.jpg"
+            },
+            {
+              "AttractionName": ["Waitomo Caves","waitomo"],
+              "AttractionDescription": "Marvel at Mother Nature’s light display as you glide silently through the starry wonderland of the Glowworm Grotto. Experience the serene ambience as you enter this galaxy of tiny living lights. The glowworm (Arachnocampa Luminosa) is unique to New Zealand, making the Waitomo Glowworm Caves an absolute must-do. See thousands of these tiny creatures as they radiate their unmistakable luminescent light in a subterranean world. The Waitomo Glowworm Caves tours are made up of two levels. The upper being dry and decorated with stunning, delicate cave formations and the lower level consisting of stream passages, glowworms and the Cathedral, the tallest chamber in the cave.",
+              "AttractionImg": "Images/NorthIslandAttractions/waitomoCaves.jpg"
+            }
+          ]
+        },
+        "Wellington": {
+          "RegionName": "Wellington",
+          "RegionCode": "Wellington",
+          "MainCities": "Wellington",
+          "Population": "550,500",
+          "LandArea": "8,049.44 km2",
+          "Coordinates": "41.0299° S, 175.4376° E",
+          "Information": "The Wellington Region (also known as Greater Wellington) is a local government region of New Zealand that occupies the southern end of the North Island. The region covers an area of 8,049 square kilometres (3,108 sq mi), and is home to a population of 521,500 (June 2018). The region is named after Wellington, New Zealand's capital city and region's seat. The Wellington urban area, including the cities of Wellington, Porirua, Lower Hutt and Upper Hutt, accounts for 80 percent of the region's population; Other major urban areas include the Kapiti conurbation of Waikanae, Paraparaumu, Raumati and Paekakariki, and the town of Masterton.",
+          "BannerImg": "Images/gallery/Attractions/regions/wellington.jpg",
+          "AreaMap": "Images/NorthIslandAttractions/northisland%20info%20images/wellington.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Beehive"],
+              "AttractionDescription": "The Beehive is the common name for the Executive Wing of the New Zealand Parliament Buildings, located at the corner of Molesworth Street and Lambton Quay, Wellington. It is so-called because its shape is reminiscent of that of a traditional woven form of beehive known as a 'skep'. It is registered as a Category I heritage building by Heritage New Zealand. Free, daily, one-hour guided tours of Parliament begin on the hour at the Visitor Centre in the foyer of the Beehive (Executive Wing). Take a tour with one of our trained guides to visit key parts of Parliament’s buildings and learn about our parliamentary processes. Public tours start on the hour and take one hour to complete. Individuals do not need to book. We recommend that you arrive early to ensure your preferred tour time. Tour group sizes are limited. Groups of 10 or more are required to book their tour in advance.",
+              "AttractionImg": "Images/NorthIslandAttractions/beeHive.jpg"
+            },
+            {
+              "AttractionName": ["Te Papa"],
+              "AttractionDescription": "A recognised world-leader in interactive and visitor focused museum experiences, Te Papa lets you experience the nation's art, culture and science - all in one breathtaking waterfront location. Better still, general admission is free! New Zealand's geology and natural environment, and the stories of New Zealand's indigenous people, the Maori, are celebrated in Te Papa's permanent exhibitions. An exciting range of exhibitions display New Zealand's diverse art and visual culture and top-rating international exhibitions tour regularly. Te Papa's event programme also features free events and entertainment, performances, floortalks, lectures, and more.",
+              "AttractionImg": "Images/NorthIslandAttractions/tePapa.jpg"
+            },
+            {
+              "AttractionName": ["Wellington Cable Car"],
+              "AttractionDescription": "Join locals and visitors alike in a historic trip on the Wellington Cable Car. For over a hundred years passengers have enjoyed the dramatic views of our growing cityscape and the surrounding hills that define Wellington's harbour. It offers a charming escape from the busy city streets to the tree lined walkways of the Botanic Gardens. There is simply no better way to experience the hidden charm that Wellington has to offer than to take this 5-minute ride from the heart of city center, up through the hillside terraced houses of Kelburn to the lookout perched high above the city. Enjoy easy access to the Botanic Garden, Cable Car Museum, Space Place (at Carter Observatory) and Zealandia (via free shuttle).",
+              "AttractionImg": "Images/NorthIslandAttractions/wellingtonCable.jpg"
+            }
+          ]
+        }
+      },
+      "RegionBanner": "Images/whiteCliffsTaranakiBanner.png"
+    },
+    "SouthIsland": {
+      "Regions": {
+        "Canterbury": {
+          "RegionName": "Canterbury",
+          "RegionCode": "Canterbury",
+          "MainCities": "Christchurch",
+          "Population": "666,300",
+          "LandArea": "44,503.60 km2",
+          "Coordinates": "43.6°S 172.0°E",
+          "Information": "Canterbury (Māori: Waitaha) is a region of New Zealand, located in the central-eastern South Island. The region covers an area of 44,508 square kilometres (17,185 sq mi), and is home to a population of 624,000 (June 2018). The region in its current form was established in 1989 during nationwide local government reforms. The Kaikoura District joined the region in 1992 following the abolition of the Nelson-Marlborough Regional Council. Christchurch, the South Island's largest city and the country's third-largest urban area, is the seat of the region and home to 65 percent of the region's population. Other major towns and cities include Timaru, Ashburton, Rangiora and Rolleston.",
+          "BannerImg": "Images/gallery/Attractions/regions/portHills.jpg",
+          "AreaMap": "Images/SouthIslandAttractions/regionImage/canterbury.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Christchurch Gondola"],
+              "AttractionDescription": "The Gondola offers a unique Christchurch sightseeing experience that you’ll never forget. Soar suspended above the valleys as the birds fly beneath your cable car. Enjoy breathtaking views of the Christchurch cityscape, over the Canterbury Plains out to the mighty Southern Alps and the dramatic hills of Banks Peninsula. You may know it as a cable car, others refer to it as a Gondola. But whatever you call it, this trip is one of the must-do sightseeing attractions in Christchurch, and you will never forget your Gondola experience! At the summit, experience the Time Tunnel ride, a dramatic reconstruction of the history of the region. Revive your spirits with a snack at the Red Rock Café, and browse what is on offer at the Shop at the Top.",
+              "AttractionImg": "Images/SouthIslandAttractions/christchurchGondola.jpg"
+            },
+            {
+              "AttractionName": ["Hamner Springs Thermal Pools"],
+              "AttractionDescription": "Just a 90 minute drive away from Christchurch, you'll arrive at the tranquil sanctuary of the Hamner Springs Thermal Pools. With over six types of pools ranging from Aqua Therapy which shoots out jets of water for the perfect back massage to the mineral rich Sulfur Pools, a natural remedy for softening your skin - you'll be sure to relax from your engaged holiday of exploring New Zealand. It's also perfect for families, with the Aqua Play Pools which features fountains and water slides to keep the kids entertained! You'll be surrounded by towering snow capped mountains and redwood trees to truly feel the natural paradise of Hamner Springs. Enjoy the flexibility of the same day return ticket to enter in the morning, spend a day exploring the surrounding nature, then return once again to relax!",
+              "AttractionImg": "Images/SouthIslandAttractions/hanmerSprings.jpg"
+            },
+            {
+              "AttractionName": ["Aoraki/ Mount Cook National Park","MtCook"],
+              "AttractionDescription": "Aoraki Mount Cook National Park is home of the highest mountains and the longest glaciers. It is alpine in the purest sense - with skyscraping peaks, glaciers and permanent snow fields, all set under a star-studded sky. Although it encompasses 23 peaks over 3000 metres high, this park is very accessible. State Highway 80 leads to Aoraki/Mt Cook Village which is situated beside scenic Lake Pukaki and provides a comfortable base for alpine activities. Far from city lights, the stargazing here is magnificent - Aoraki Mount Cook National Park forms the majority of New Zealand's only International Dark Sky Reserve.",
+              "AttractionImg": "Images/SouthIslandAttractions/mtCook.jpg"
+            }
+          ]
+        },
+        "Marlborough": {
+          "RegionName": "Marlborough",
+          "RegionCode": "Marlborough",
+          "MainCities": "Blenheim, Picton",
+          "Population": "52,200",
+          "LandArea": "12,484.59 km2",
+          "Coordinates": "41.5917° S, 173.7624° E",
+          "Information": "The Marlborough Region (Māori: Te Tauihu-o-te-waka, or Tauihu), commonly known simply as Marlborough, is one of the regions of New Zealand, located in the northeast of the South Island. Marlborough is a unitary authority, both a region and a district, and its council is located at Blenheim. Marlborough is known for its dry climate, the Marlborough Sounds, and Sauvignon blanc wine. It takes its name from the earlier Marlborough Province, which was named after His Grace General The 1st Duke of Marlborough, an English general and statesman.",
+          "BannerImg": "Images/gallery/Attractions/regions/Marlborough.jpg",
+          "AreaMap": "Images/SouthIslandAttractions/regionImage/malborough.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Marlborough Farmers’ Market"],
+              "AttractionDescription": "Enjoy the taste of the freshest seasonal fruit, vegetables and produce that Marlborough has to offer. Our Farmers’ Market is full of locally grown and sourced food, sold by the producer. Know that the meat, eggs and cheese you purchase comes from animals that have been treated humanely. Feel great! Because not only are you nourishing yourself but you are also helping the environment by reducing your carbon footprint. Support local, sustainable farmers, growers and businesses… Spend money locally. Talk with stallholders and learn how your food is produced. Discover their favourite recipes, tips and ideas. Most importantly, relax and have fun, enjoy locally roasted coffee and brunch while being entertained by our talented buskers.",
+              "AttractionImg": "Images/SouthIslandAttractions/malboroughFarmers.jpg"
+            },
+            {
+              "AttractionName": ["Yealands Estate Winery"],
+              "AttractionDescription": "When Peter Yealands first discovered a little-known, but spectacular, corner of Marlborough, an incredible story began to unfold. By late 2008, through a bold vision and a capacity for sheer hard work that few could comprehend, Peter was standing alongside his world-leading carboNZeroCertTM Yealands Estate winery with his sights firmly set upon becoming the world's most sustainable wine producer. Combining the very latest cutting-edge green technology and highly innovative thinking, the Yealands name quickly became synonymous with a passion for crafting ultra-premium wines in the most environmentally-friendly manner. Our cosy and intimate Cellar Door provides a relaxing hideaway where you can discover the Yealands Estate story and try our quality portfolio of wines whilst relaxing in unhurried comfort.",
+              "AttractionImg": "Images/SouthIslandAttractions/yealandsWinery.jpg"
+            }
+          ]
+        },
+        "Otago": {
+          "RegionName": "Otago",
+          "RegionCode": "Otago",
+          "MainCities": "Dunedin, Queenstown",
+          "Population": "254,600",
+          "LandArea": "31,251 km2",
+          "Coordinates": "45.4791° S, 170.1548° E",
+          "Information": "Otago (Maori: Ōtākou), is a region of New Zealand in the south of the South Island administered by the Otago Regional Council. It has an area of approximately 32,000 square kilometres (12,000 sq mi), making it the country's third largest local government region. The name 'Otago' is an Anglicisation of 'Otakou', the name of the Māori village near the entrance to the harbour. Major centres include Dunedin (the principal city), Oamaru, Balclutha, Alexandra, and the major tourist centres Queenstown and Wanaka. Beginning in the west, the geography of Otago consists of high alpine mountains. The highest peak in Otago is Mount Aspiring / Tititea, which is on the Main Divide. From the high mountains the rivers discharge into large glacial lakes. In this part of Otago glacial activity – both recent and very old – dominates the landscape, with large 'U' shaped valleys and rivers which have high sediment loads. River flows also vary dramatically, with large flood flows occurring after heavy rain.",
+          "BannerImg": "Images/gallery/Attractions/regions/dunedin.jpg",
+          "AreaMap": "Images/SouthIslandAttractions/regionImage/otago.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Coronet Peak Ski Field"],
+              "AttractionDescription": "Open since 1947, Coronet Peak was New Zealand’s first commercial ski field and the home of good times. Located just 16km from central Queenstown, the ski field offers a variety of terrain for skiers and snowboarders of any ability. Group and private lessons and equipment hire is also available on mountain. Coronet Peak also offers, childcare, sightseeing chairlift rides, sledding and a range of food and beverage options. The home of Night Ski, Coronet Peak lights it up 4pm - 9pm every Wednesday, Friday and Saturday night from late June to early September.",
+              "AttractionImg": "Images/NorthIslandAttractions/coronetPeak.jpg"
+            },
+            {
+              "AttractionName": ["Larnach Castle"],
+              "AttractionDescription": "Discover New Zealand’s only Castle, built 1871 by William Larnach, merchant baron and politician, for his beloved first wife Eliza. It took more than 200 workmen three years to build the Castle shell and master European craftsmen spent a further 12 years embellishing the interior. Larnach spared no expense on his dream home, which features the finest materials from around the world. The Castle is still privately owned and cared for by the Barker family who purchased it as their home in 1967. Decades have been spent on the Castle's restoration, with the family having restored empty buildings from ruin and assembled a large collection of original New Zealand period furniture and antiques. This living collection showcases the craftsmanship and spirt of New Zealand. Open to the public throughout, this conservation project has been funded through admission fees.",
+              "AttractionImg": "Images/SouthIslandAttractions/larnach.jpg"
+            },
+            {
+              "AttractionName": ["Moeraki Boulders","moeraki"],
+              "AttractionDescription": "The Moeraki Boulders are a group of large spherical “stones” on Koekohe Beach near Moeraki on New Zealand’s Otago coast. These boulders are actually concretions that have been exposed through shoreline erosion from coastal cliffs. Each boulder weighs several tonnes and is up to two metres high. Even today, there are still boulders remaining in the mudstone that will, eventually, fall on to the beach as they come lose due to erosion! The boulders are one of the most fascinating and popular attractions on the South Island. Early morning and late afternoon are the prime times for photography, when brilliant soft sunlight is cast across the rocks; making for spectacular photographic opportunities. Other times, such as when storms are rolling in, provide an atmosphere and scene that can’t be matched anywhere else in New Zealand, or the world!",
+              "AttractionImg": "Images/SouthIslandAttractions/moerakiBoulders.jpg"
+            }
+          ]
+        },
+        "Southland": {
+          "RegionName": "Southland",
+          "RegionCode": "Southland",
+          "MainCities": "Invercargill",
+          "Population": "103,900",
+          "LandArea": "31,218.27 km2",
+          "Coordinates": "45.8489° S, 167.6755° E",
+          "Information": "Southland (Māori: Murihiku) is New Zealand's southernmost region. It consists mainly of the southwestern portion of the South Island and Stewart Island / Rakiura. It includes Southland District, Gore District and the city of Invercargill. Politically, Southland proper extends from Fiordland in the west past the Mataura River to the Catlins the east. To the north, Southland is framed by the Darran and Eyre Mountains. Farther south lies Stewart Island which is separated from the mainland by the Foveaux Strait. Southland contains New Zealand's highest waterfall—the Browne Falls. Lake Hauroko is the deepest lake in the country. The highest peak in Southland is Mount Tutoko, which is part of the Darran mountains. The largest lake in Southland is Lake Te Anau followed by Lake Manapouri which both lie within the boundaries of Fiordland National Park. Established on 20 February 1905, it is the largest national park in New Zealand—covering much of Fiordland which is devoid of human settlement.",
+          "BannerImg": "Images/gallery/Attractions/regions/invercargill.jpg",
+          "AreaMap": "Images/SouthIslandAttractions/regionImage/southland.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Fiordland National Park","fiord"],
+              "AttractionDescription": "Fiordland National Park is home to what many consider New Zealand’s most stunning natural attraction – the breathtaking Milford Sound. You won't be surprised that Rudyard Kipling called it the eighth wonder of the world. Beautiful ice-carved fiords and snow-capped peaks make this area of Aotearoa an absolute must-see for visitors, domestic and international alike. The national park, established in 1952, is the largest in New Zealand, with over 1.2 million hectares of conservation area. It is a place where mountains, rock, ice, lakes, forests and grasslands collide with stunning beauty.",
+              "AttractionImg": "Images/SouthIslandAttractions/fiordlandNationalPark.png"
+            },
+            {
+              "AttractionName": ["Bill Richardson Transport World"],
+              "AttractionDescription": "If you're looking for things to do in Invercargill then Transport World could be for you. Brought to you by one Southland family with a serious passion for wheels, Transport World offers you the chance to view two expansive private motoring museums, Bill Richardson Transport World and Classic Motorcycle Mecca in superb surroundings. Find spaces bursting with a huge range of automotive and motorcycle history. Designed to have broad appeal, you will be captivated by their quirky details and interests for everyone. Dig This Invercargill opened in October 2017 and is New Zealand’s first heavy equipment playground. Designed to be a whole lot of fun, Dig This offers the chance for both young and old to drive heavy machinery.",
+              "AttractionImg": "Images/SouthIslandAttractions/billRichardsonTransport.png"
+            }
+          ]
+        },
+        "Tasman": {
+          "RegionName": "Tasman",
+          "RegionCode": "Tasman",
+          "MainCities": "Nelson, Richmond",
+          "Population": "59,400",
+          "LandArea": "9,616.36 km2",
+          "Coordinates": "41°30′S 172°48′E",
+          "Information": "Tasman District (Māori: Te Tai-o-Aorere) is a local government district in the north of the South Island of New Zealand. It borders the Canterbury Region, West Coast Region, Marlborough Region and Nelson City. It is administered by the Tasman District Council, a unitary authority, which sits at Richmond, with community boards serving outlying communities in Motueka and Golden Bay / Mohua. Tasman District is a large area at the western corner of the north end of the South Island of New Zealand. It covers 9,786 square kilometres and is bounded on the west by the Matiri Ranges, Tasman Mountains and the Tasman Sea. To the north Tasman and Golden Bays form its seaward edge, and the eastern boundary extends to the edge of Nelson city, and includes part of the Spencer Mountains and the Saint Arnaud and Richmond Ranges. The Victoria Ranges form Tasman's southern boundary and the district's highest point is Mount Franklin, at 2,340 metres.",
+          "BannerImg": "Images/SouthIslandAttractions/Tasman.jpg",
+          "AreaMap": "Images/SouthIslandAttractions/regionImage/tasman.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Abel Tasman National Park"],
+              "AttractionDescription": "The Abel Tasman National Park is an easily-accessible coastal paradise. You can choose to explore the park from land, on the water, or in the air, with tour operators aplenty offering cruises, water taxi services, kayaking options, heli-tours and sailing catamarans. Whilst summer is a popular time to visit, locals believe that the shoulder seasons are actually the best time to explore the park, as crisp mornings, calm waters and quiet beaches allow you to truly enjoy the peace and serenity. Those who crave home comforts can stay in luxurious lodges, but sleeping under the stars is regarded as the ultimate way to experience the spirit of the Abel Tasman.",
+              "AttractionImg": "Images/SouthIslandAttractions/ableTasman.jpg"
+            },
+            {
+              "AttractionName": ["Kaiteriteri"],
+              "AttractionDescription": "At any time of the year, standing on Kaiteriteri beach in the morning sun looking out at the bay will make your spirit soar. While it’s the perfect place to begin your journey by sea into the Abel Tasman National Park, it’s also the perfect place to linger, relax, and enjoy this truly stunning part of Nelson Tasman. Kaiteriteri is a beloved holiday destination for many thousands of New Zealanders, with family memories and traditions often stretching back through the generations. With a range of accommodation including motels, lodges and campgrounds, and an array of extraordinary activities right on your doorstep, there is truly something for everyone to enjoy here.",
+              "AttractionImg": "Images/SouthIslandAttractions/kaiteriteri2.png"
+            }
+          ]
+        },
+        "WestCoast": {
+          "RegionName": "West Coast",
+          "RegionCode": "WestCoast",
+          "MainCities": "Greymouth, Hokitika, Westport",
+          "Population": "32,900",
+          "LandArea": "23,245.65 km2",
+          "Coordinates": "42.6°S 171.4°E",
+          "Information": "The West Coast (Māori: Te Tai Poutini) is a region of New Zealand on the west coast of the South Island that is administered by the West Coast Regional Council. It comprises the territorial authorities of Buller District, Grey District and Westland District. The principal towns are Westport, Greymouth, and Hokitika. The region is one of the more remote and most sparsely populated areas of the country. The region reaches from Kahurangi Point in the north to Awarua Point in the south, a distance of 600 km. To the west is the Tasman Sea (which like the Southern Ocean can be very rough, with four-metre swells common), and to the east are the Southern Alps. Much of the land is rugged, with a coastal plain where much of the population resides. The land is very scenic, with wild coastlines, mountains and a very high proportion of native bush, much of it native temperate rain forest.",
+          "BannerImg": "Images/gallery/Attractions/regions/Greymouth.jpg",
+          "AreaMap": "Images/SouthIslandAttractions/regionImage/westCoast.png",
+          "Attractions": [
+            {
+              "AttractionName": ["Franz Josef Glacier"],
+              "AttractionDescription": "From its origins high in the Southern Alps, the Franz Josef Glacier (Kā Roimata ō Hine Hukatere) descends into the lush native rainforest of Westland's National Park. This descent occurs from a height of 3,000m above sea level to 240m over a distance of 11km, making it one of the steepest glaciers in the country. It also moves faster than your average glacier at over 50cm per day, although speeds of up to four metres per day have been recorded in the main ice fall sections. This creates some truly incredible features in the glacier such as ice caves, tunnels, seracs and crevasses; all of which are constantly changing and evolving so no two days are ever the same. Our guides craft their way through the terrain using their ice axe to find the most impressive glacier features and safest hike route.",
+              "AttractionImg": "Images/SouthIslandAttractions/fransJoseph.jpg"
+            },
+            {
+              "AttractionName": ["Shantytown Heritage Park"],
+              "AttractionDescription": "Shantytown is one of New Zealand’s premier cultural and heritage attractions. A faithfully recreated 1900s pioneer town, born out of, and stimulated by, the great West Coast gold rushes of the 1860s. Shantytown, nestled amidst regenerative native rain forest provides a real sense of what it was like to live in New Zealand then and what it means to be a New Zealander now, by allowing you to be both participant and observer in this most dynamic period of its post-Maori colonisation. Shantytown is also one of the West Coast's leading functions, conferences and weddings venues. Shantytown is located approximately 10km south of Greymouth.",
+              "AttractionImg": "Images/SouthIslandAttractions/shantyTown.jpg"
+            }
+          ]
+        }
+      },
+      "RegionBanner": "Images/lakeMountainsBanner.png"
+    }
+  }

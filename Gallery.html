@@ -1,0 +1,542 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>New Zealand Attractions Home Page</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="New Zealand Attractions" name="title" />
+		<meta content="Sean Brook" name="author" />
+		<meta content="Attractions, New Zealand" name="keywords" />
+		<link href="css/bootstrap.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/spinner.css" rel="stylesheet" />
+		<link
+			href="http://fonts.googleapis.com/css?family=Merienda+One"
+			rel="stylesheet"
+		/>
+		<link
+			href="http://fonts.googleapis.com/css?family=Oleo+Script"
+			rel="stylesheet"
+		/>
+		<link href="Images/nzIcon.gif" rel="icon" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="container-fluid">
+		<div id="navigation-container"></div>
+		<div class="headingBox">
+			<div class="container">
+				<img
+					alt="Hobbiton"
+					class="headingBanner"
+					src="Images/hobbitonBanner.png"
+				/>
+				<div class="bannerHeadingBox">
+					<h3 class="bannerTitleHeading">
+						GALLERY
+						<hr class="headingUnderline" />
+					</h3>
+				</div>
+			</div>
+		</div>
+		<!-- Attractions Lightbox -->
+		<h2 class="mainHeading">
+			Attractions<img
+				alt="ferris wheel"
+				class="bannerIcon"
+				src="Images/Icons/ferrisWheel.png"
+			/>
+		</h2>
+		<div class="row Imgrow container">
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Rainbows End Roller Coaster"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(1,'current','Attractions')"
+					src="Images/gallery/Attractions/rainbowsEndRollerCoaster.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Sergeant Cecil Malthus, Gallipoli exhibition at Te Papa"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(2,'current','Attractions')"
+					src="Images/gallery/Attractions/tepapaGallipoliExhibition.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Sky Tower at night"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(3,'current','Attractions')"
+					src="Images/gallery/Attractions/skyTowerNight.png"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Split Apple Rock"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(4,'current','Attractions')"
+					src="Images/gallery/Attractions/splitAppleRock.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Inside Hobbiton"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(5,'current','Attractions')"
+					src="Images/gallery/Attractions/insideHobbiton.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Mt Tongariro, Ngaurohoe and Ruapehu"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(6,'current','Attractions')"
+					src="Images/gallery/Attractions/mt-tongariro-ngauruhoe-and-ruapehu-tongariro-national-park-new-zealand--30967.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Aranui Cave"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(7,'current','Attractions')"
+					src="Images/gallery/Attractions/aranuiCave.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="columnLight col-xs-6 col-sm-3">
+				<img
+					alt="The picturesque view of Mount Cook with the bright turquoise of Lake Pukaki"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','attractions');slides(8,'current','Attractions')"
+					src="Images/gallery/Attractions/mtCook.jpg"
+					style="width: 100%"
+				/>
+			</div>
+		</div>
+		<div id="attractionsModal" class="modal">
+			<span
+				title="close gallery"
+				class="close cursor"
+				onclick="galleryModal('close','attractions')"
+				>&times;</span
+			>
+			<div class="modal-content mContent">
+				<div class="AttractionsSlides">
+					<div class="numbertext">1 / 8</div>
+					<img
+						alt="Rainbow's End famous corkscrew roller coaster"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/rainbowsEndRollerCoaster.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">2 / 8</div>
+					<img
+						alt="Sergeant Cecil Malthus, Gallipoli exhibition at Te Papa"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/tepapaGallipoliExhibition.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">3 / 8</div>
+					<img
+						alt="The Auckland Sky Tower at night"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/skyTowerNight.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">4 / 8</div>
+					<img
+						alt="The iconic Split Apple rock at Kaiteriteri"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/splitAppleRock.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">5 / 5</div>
+					<img
+						alt="Inside a Hobbit house in Hobbiton"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/insideHobbiton.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">6 / 8</div>
+					<img
+						alt="Mount Tongariro, Mt Ngauruhoe and Mt Ruapehu"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/mt-tongariro-ngauruhoe-and-ruapehu-tongariro-national-park-new-zealand--30967.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">7 / 8</div>
+					<img
+						alt="Aranui Cave"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/aranuiCave.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="AttractionsSlides">
+					<div class="numbertext">8 / 8</div>
+					<img
+						alt="The picturesque view of Mount Cook with the bright turquoise of Lake Pukaki"
+						class="mySlidesImg"
+						src="Images/gallery/Attractions/mtCook.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<a class="prev1" onclick="slides(-1, 'plus','Attractions')">&#10094;</a>
+				<a class="next1" onclick="slides(1, 'plus','Attractions')">&#10095;</a>
+				<div class="caption-container">
+					<p id="Attractionscaption"></p>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="Rainbow's End famous corkscrew roller coaster"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(1,'current','Attractions')"
+						src="Images/gallery/Attractions/rainbowsEndRollerCoaster.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="Sergeant Cecil Malthus, Gallipoli exhibition at Te Papa"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(2,'current', 'Attractions')"
+						src="Images/gallery/Attractions/tepapaGallipoliExhibition.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="The Auckland Sky Tower at night"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(3,'current','Attractions')"
+						src="Images/gallery/Attractions/skyTowerNight.png"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="The iconic Split Apple rock at Kaiteriteri"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(4,'current', 'Attractions')"
+						src="Images/gallery/Attractions/splitAppleRock.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="Inside a Hobbit house in Hobbiton"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(5,'current','Attractions')"
+						src="Images/gallery/Attractions/insideHobbiton.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="Mount Tongariro, Mt Ngauruhoe and Mt Ruapehu"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(6,'current','Attractions')"
+						src="Images/gallery/Attractions/mt-tongariro-ngauruhoe-and-ruapehu-tongariro-national-park-new-zealand--30967.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="Aranui Cave"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(7,'current','Attractions')"
+						src="Images/gallery/Attractions/aranuiCave.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-6 col-sm-3">
+					<img
+						alt="The picturesque view of Mount Cook with the bright turquoise of Lake Pukaki"
+						class="Attractionsdemo cursor lightImgthumb"
+						onclick="slides(8,'current','Attractions')"
+						src="Images/gallery/Attractions/mtCook.jpg"
+						style="width: 100%"
+					/>
+				</div>
+			</div>
+		</div>
+		<!-- History Lightbox -->
+		<h2 id="historyHeader" class="mainHeading" style="text-align: center">
+			History<img
+				alt="History"
+				class="bannerIcon"
+				src="Images/Icons/history.png"
+			/>
+		</h2>
+		<div class="row Imgrow container">
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Sir Edmund Hillary and Sherpa Tenzing Norgay - The first men to sucessfully climb Mount Everest"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(1, 'current', 'History')"
+					src="Images/gallery/History/sirEdmundNorgay.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="The Battle of Gate Pa on 27 April 1864, when British under General Cameron attacked a Māori stockade."
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(2, 'current', 'History')"
+					src="Images/gallery/History/gatePa.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="All Blacks front row of John Drake, left, Sean Fitzpatrick and Steve McDowell celebrate New Zealand's 1987 World Cup win in Auckland."
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(3, 'current', 'History')"
+					src="Images/gallery/History/1987%20win.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Australian and New Zealand Troops landing at Anzac Cove, 25th April 1915"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(4, 'current', 'History')"
+					src="Images/gallery/History/gallipoli1915.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Modern day Anzac cove over 100 years later"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(5, 'current', 'History')"
+					src="Images/gallery/History/modernDayAnzacCove.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="The nine documents that make up the Treaty of Waitangi"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(6, 'current', 'History')"
+					src="Images/gallery/History/treatySet2.png"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Portrait of Captain James Cook, the first European to define the outline of New Zealand"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(7, 'current', 'History')"
+					src="Images/gallery/History/captainCook.jpg"
+					style="width: 100%"
+				/>
+			</div>
+			<div class="column columnLight col-xs-6 col-sm-3">
+				<img
+					alt="Dust rises from Christchurch seconds after a 6.3 magnitude earthquake struck the city"
+					class="hover-shadow cursor lightImg img-thumbnail"
+					onclick="galleryModal('open','history');slides(8, 'current', 'History')"
+					src="Images/gallery/History/earthquakeFromHills.jpg"
+					style="width: 100%"
+				/>
+			</div>
+		</div>
+		<div id="historyModal" class="modal">
+			<span
+				title="close gallery"
+				class="close cursor"
+				onclick="galleryModal('close', 'history')"
+				>&times;</span
+			>
+			<div class="modal-content mContent">
+				<div class="HistorySlides">
+					<div class="numbertext">1 / 8</div>
+					<img
+						alt="Sir Edmund Hillary and Sherpa Tenzing Norgay - The first men to sucessfully climb Mount Everest"
+						class="mySlidesImg"
+						src="Images/gallery/History/sirEdmundNorgay.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">2 / 8</div>
+					<img
+						alt="The Battle of Gate Pa on 27 April 1864, when British under General Cameron attacked a Māori stockade."
+						class="mySlidesImg"
+						src="Images/gallery/History/gatePa.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">3 / 8</div>
+					<img
+						alt="All Blacks front row of John Drake, left, Sean Fitzpatrick and Steve McDowell celebrate New Zealand's 1987 World Cup win in Auckland."
+						class="mySlidesImg"
+						src="Images/gallery/History/1987%20win.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">4 / 8</div>
+					<img
+						alt="Australian and New Zealand Troops landing at Anzac Cove, 25th April 1915"
+						class="mySlidesImg"
+						src="Images/gallery/History/gallipoli1915.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">5 / 8</div>
+					<img
+						alt="Modern day Anzac cove over 100 years later"
+						class="mySlidesImg"
+						src="Images/gallery/History/modernDayAnzacCove.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">6 / 8</div>
+					<img
+						alt="The nine documents that make up the Treaty of Waitangi"
+						class="mySlidesImg"
+						src="Images/gallery/History/treatySet2.png"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">7 / 8</div>
+					<img
+						alt="Portrait of Captain James Cook, the first European to define the outline of New Zealand"
+						class="mySlidesImg"
+						src="Images/gallery/History/captainCook.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="HistorySlides">
+					<div class="numbertext">8 / 8</div>
+					<img
+						alt="Dust rises from Christchurch seconds after a 6.3 magnitude earthquake struck the city"
+						class="mySlidesImg"
+						src="Images/gallery/History/earthquakeFromHills.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<a class="prev1" onclick="slides(-1, 'plus','History')">&#10094;</a>
+				<a class="next1" onclick="slides(1, 'plus','History')">&#10095;</a>
+				<div class="caption-container">
+					<p id="Historycaption"></p>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="Sir Edmund Hillary and Sherpa Tenzing Norgay - The first men to sucessfully climb Mount Everest"
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(1, 'current', 'History')"
+						src="Images/gallery/History/sirEdmundNorgay.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="The Battle of Gate Pa on 27 April 1864, when British under General Cameron attacked a Māori stockade."
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(2, 'current', 'History')"
+						src="Images/gallery/History/gatePa.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="All Blacks front row of John Drake, left, Sean Fitzpatrick and Steve McDowell celebrate New Zealand's 1987 World Cup win in Auckland."
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(3, 'current', 'History')"
+						src="Images/gallery/History/1987%20win.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="Australian and New Zealand Troops landing at Anzac Cove, 25th April 1915"
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(4, 'current', 'History')"
+						src="Images/gallery/History/gallipoli1915.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="Modern day Anzac cove over 100 years later"
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(5, 'current', 'History')"
+						src="Images/gallery/History/modernDayAnzacCove.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="The nine documents that make up the Treaty of Waitangi"
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(6, 'current', 'History')"
+						src="Images/gallery/History/treatySet2.png"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="Portrait of Captain James Cook, the first European to define the outline of New Zealand"
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(7, 'current', 'History')"
+						src="Images/gallery/History/captainCook.jpg"
+						style="width: 100%"
+					/>
+				</div>
+				<div class="column columnLight col-xs-3 col-sm-3">
+					<img
+						alt="Dust rises from Christchurch seconds after a 6.3 magnitude earthquake struck the city"
+						class="Historydemo cursor lightImgthumb"
+						onclick="slides(8, 'current', 'History')"
+						src="Images/gallery/History/earthquakeFromHills.jpg"
+						style="width: 100%"
+					/>
+				</div>
+			</div>
+		</div>
+		<!-- Start of videos -->
+		<h2 class="mainHeading" style="text-align: center">
+			Videos<img
+				alt="Video Camera"
+				class="bannerIcon"
+				src="Images/Icons/video.png"
+			/>
+		</h2>
+		<div id="videoContainer" class="row container"></div>
+		<!-- End of Lightboxes -->
+		<div id="footer-Container"></div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
