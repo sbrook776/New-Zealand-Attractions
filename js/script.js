@@ -20,9 +20,13 @@ let eventLng;
 console.log(currentPage);
 if (currentPage.includes("/event-details")) {
 	const eventId = window.location.search.split("=")[1];
-	console.log(eventId);
 	displayResults(eventId);
 }
+if (currentPage === "/Events.html" || currentPage === "/home.html") {
+	displayResults();
+	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
+}
+
 if (currentPage === "/Events.html") {
 	displayResults();
 	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
@@ -38,6 +42,8 @@ async function displayResults(eventId) {
 		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${eventResults}&offset=${pageOffset}`;
 	} else if (currentPage.includes("/event-details")) {
 		url = `https://api.eventfinda.co.nz/v2/events.json?id=${eventId}`;
+	} else if (currentPage === "/home.html") {
+		url = `https://api.eventfinda.co.nz/v2/events.json?rows=6`;
 	}
 	$.ajax({
 		url: url,
@@ -51,12 +57,13 @@ async function displayResults(eventId) {
 		},
 		success: function (xhr) {
 			hideSpinner();
-			console.log(url);
+			const { events } = xhr;
+
 			if (currentPage.includes("event-details")) {
 				const singlePageEventContainer = document.createElement("div");
 				singlePageEventContainer.setAttribute("id", "eventContainer");
 				singlePageEventContainer.classList.add("container");
-				const { events } = xhr;
+
 				eventName = events[0].name;
 				const eventLoc = events[0].address;
 				eventLat = events[0].point.lat;
@@ -176,10 +183,10 @@ async function displayResults(eventId) {
 						${eventDesc}<br />
 						[Event description clamped by API]
 					</p>
-					<div id="sessionsContainer"><h4><strong>Sessions</strong></h4></div>
-					<div id="restrictionsContainer"><h4><strong>Restrictions:</strong></h4><div><i class="fa-solid fa-users"></i> ${events[0].restrictions}</div></div>
+					<div id="sessionsContainer"><div><h4><strong>Sessions</strong></h4></div></div>
+					<div id="restrictionsContainer"><h4><strong>Restrictions:</strong></h4><div><i class="fa-solid fa-users"></i><div> ${events[0].restrictions}</div></div></div>
 					<span id="${eventName}Map"></span></div>
-					<div id="ticketOuterContainer"><h4><strong>Tickets</strong></h4></div>			
+					<div id="ticketOuterContainer"><div><h4><strong>Tickets</strong></h4></div></div>			
 					<div id="websiteContainer"><h4><strong>Website</strong></h4><div><i class="fa-solid fa-earth-americas"></i><a
 					href="${events[0].web_sites.web_sites[0].url}"
 					target="_blank"
@@ -275,6 +282,71 @@ async function displayResults(eventId) {
 					.getElementById("sessionsContainer")
 					.append(fiveSessionsContainer);
 			}
+			if (currentPage === "/home.html") {
+				events.forEach((event) => {
+					const eventUrl = event.web_sites.web_sites;
+					// get event location
+					let eventLocation = event.location.summary;
+					// let eventLocationCity = eventLocation.split(",");
+					// eventLocationCity = eventLocationCity[2].trim();
+					const eventSessions = event.sessions.sessions;
+					const eventImage = event.images.images[0].original_url;
+					// return event sessions that are current
+					const currentSessions = eventSessions.filter(
+						(session) => new Date(session.datetime_start) >= currentDate
+					);
+					let eventStartTime;
+					// if no current session times display original session time
+					if (currentSessions.length === 0) {
+						eventStartTime = new Date(event.datetime_start);
+					} else {
+						eventStartTime = new Date(currentSessions[0].datetime_start);
+					}
+					// get time in hours/ minutes of current event date.
+					let eventStartHours = eventStartTime.getHours();
+					let eventStartMinutes = eventStartTime.getMinutes();
+					eventStartMinutes =
+						eventStartMinutes === 0 ? "" : `:${eventStartMinutes}`;
+					let amPm = eventStartHours >= 12 ? "pm" : "am";
+					eventStartHours = eventStartHours % 12;
+					eventStartHours = eventStartHours ? eventStartHours : 12;
+					let eventDate;
+					// convert to string/NZ date format
+					eventDate = eventStartTime.toLocaleDateString("en-GB");
+					// Display "Today" if today's date matches with event's date
+					if (currentDateString === eventDate) {
+						eventDate = "Today";
+					}
+					const eventsContainerHome = document.createElement("div");
+					eventsContainerHome.classList.add("homeEvents");
+					eventsContainerHome.classList.add("col-xs-6");
+					eventsContainerHome.classList.add("col-md-4");
+					eventsContainerHome.innerHTML = `
+					<img
+						alt="${event.name}"
+						class="boxImage img-responsive"
+						src="${eventImage}"
+				/></a>
+				<div class="infoBox">
+					<h4 class="eventTitle">${event.name}</h4>
+					<div class="eventDate"><strong>When:${eventDate} ${eventStartHours}${eventStartMinutes}${amPm}
+					<div class="eventLocation">
+						<strong>Location:</strong> Christchurch
+					</div>
+					<div class="eventDescription">
+					${event.description}
+					</div>
+					<button onclick="window.location.href='event-details.html?id=${event.id}'">
+						MORE INFO
+					</button>
+				</div>
+					`;
+					const homeEventsContainerOuter = document
+						.getElementById("homeEventsContainerOuter")
+						.appendChild(eventsContainerHome);
+				});
+			}
+
 			if (currentPage === "/Events.html") {
 				const totalEvents = xhr["@attributes"].count;
 				document.querySelector("#Allevents").innerHTML = "";
@@ -286,7 +358,6 @@ async function displayResults(eventId) {
 				let { events } = xhr;
 
 				events.forEach((event) => {
-					console.log(event);
 					const eventUrl = event.web_sites.web_sites;
 					// get event location
 					let eventLocation = event.location.summary;
@@ -385,6 +456,7 @@ async function displayResults(eventId) {
 									: (pageOffset = 0);
 							global.eventsCurrentPage = eventCurrentPage;
 							global.pageOffset = pageOffset;
+							// localStorage.setItem(pageOffset, JSON.stringify(value));
 
 							displayResults();
 						});
@@ -481,8 +553,16 @@ function showFewerSessions() {
 	const allSessionsContainer = document.getElementById("allSessionsContainer");
 	allSessionsContainer.style.display = "none";
 	fiveSessionsContainer.style.display = "block";
-}
+	singleEventDes = document.querySelector(".singleEventDes");
+	const singleEventDesScroll = singleEventDes.getBoundingClientRect();
+	const viewportHeight = document.documentElement.clientHeight;
+	const scrollPosition = singleEventDesScroll.height * 2 + viewportHeight / 2;
 
+	if (singleEventDes) {
+		window.scrollTo({ top: scrollPosition, behaviour: "smooth" });
+		console.log(singleEventDesScroll);
+	}
+}
 // Pagination
 function runCarousel() {
 	const rightBtn = document.querySelector(".right");

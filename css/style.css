@@ -1311,9 +1311,16 @@ svg .MapLink {
 	margin-bottom: 20px;
 }
 
-#sessionsContainer div, #restrictionsContainer div, #ticketOuterContainer div, #websiteContainer div, #singlePageEventLocation div, #singlePageEventDate div, #googleMapLocationName div{
-		display: flex;
+ #restrictionsContainer div, #ticketOuterContainer div div div, #websiteContainer div, #singlePageEventLocation div, #singlePageEventDate div, #googleMapLocationName div{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
+
+#ticketOuterContainer div div, #sessionsContainer div div{
+	display: flex;
+}
+
 
 /* social media icons */
 .youtubeEvent, .fbEvent, .instagramEvent, .twitterEvent {
