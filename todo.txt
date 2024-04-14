@@ -18,4 +18,4 @@ fix events on home page
 accept cookies pop up
 redo events page. fix pagination
 fix see more events button on home page
-save current page in events
+clear local storage when clicking events page

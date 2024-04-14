@@ -2,11 +2,13 @@
 	currentPagePath: window.location.pathname,
 	eventsCurrentPage: 1,
 	pageOffset: 0,
+	resultsDisplayNumber: ``,
 };
 
 let currentPage = global.currentPagePath;
 // page offset for pagination
 let pageOffset = global.pageOffset;
+let resultsDisplayNumber;
 let currentDate = new Date();
 // convert current date to string
 currentDateString = currentDate.toLocaleDateString("en-GB");
@@ -37,6 +39,15 @@ async function displayResults(eventId) {
 	showSpinner();
 	const username = "myportfolio";
 	const password = "tjdd9wm89ssf";
+	// sets page to last page user was on
+	if (
+		localStorage.getItem("pageOffset") &&
+		localStorage.getItem("eventCurrentPage")
+	) {
+		global.pageOffset = localStorage.getItem("pageOffset");
+		global.eventsCurrentPage = localStorage.getItem("eventCurrentPage");
+	}
+
 	let url;
 	if (currentPage === "/Events.html") {
 		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${eventResults}&offset=${pageOffset}`;
@@ -435,14 +446,12 @@ async function displayResults(eventId) {
 					<div class="page-counter">Page ${eventCurrentPage} of ${eventTotalPages}</div>
 					`;
 					document.querySelector("#pagination").appendChild(innerPagination);
-
 					// Disable prev button if on first page
-					if (eventCurrentPage === 1) {
+					if (eventCurrentPage == 1) {
 						document.querySelector("#prev").disabled = true;
 					}
-
 					// Disable next button if on last page
-					if (eventCurrentPage === eventTotalPages) {
+					if (eventCurrentPage == eventTotalPages) {
 						document.querySelector("#next").disabled = true;
 					}
 
@@ -456,8 +465,15 @@ async function displayResults(eventId) {
 									: (pageOffset = 0);
 							global.eventsCurrentPage = eventCurrentPage;
 							global.pageOffset = pageOffset;
-							// localStorage.setItem(pageOffset, JSON.stringify(value));
 
+							localStorage.setItem("pageOffset", JSON.stringify(pageOffset));
+							localStorage.setItem(
+								"eventCurrentPage",
+								JSON.stringify(eventCurrentPage)
+							);
+							console.log(resultsNumber);
+							localStorage.removeItem("resultsNumber");
+							window.scrollTo(0, 0);
 							displayResults();
 						});
 					// Prev page
@@ -471,7 +487,14 @@ async function displayResults(eventId) {
 									: (pageOffset = 0);
 							global.eventsCurrentPage = eventCurrentPage;
 							global.pageOffset = pageOffset;
-
+							localStorage.setItem("pageOffset", JSON.stringify(pageOffset));
+							localStorage.setItem(
+								"eventCurrentPage",
+								JSON.stringify(eventCurrentPage)
+							);
+							console.log(resultsNumber);
+							localStorage.removeItem("resultsNumber");
+							window.scrollTo(0, 0);
 							displayResults();
 						});
 				}
@@ -482,15 +505,28 @@ async function displayResults(eventId) {
 				// results display number for events
 				let displayedEventsFirst;
 				let displayedEventsLast;
-				if (eventCurrentPage === 1) {
+				if (eventCurrentPage <= 1) {
 					displayedEventsFirst = 1;
 					displayedEventsLast = eventResults;
 				} else {
 					displayedEventsFirst = pageOffset + (eventCurrentPage - 1);
 					displayedEventsLast = displayedEventsFirst + eventResults;
 				}
-				resultsNumber.innerHTML = `${displayedEventsFirst} to ${displayedEventsLast} of ${totalEvents} results`;
+				if (localStorage.getItem("resultsNumber")) {
+					resultsNumber.innerHTML = JSON.parse(
+						localStorage.getItem("resultsNumber")
+					);
+					localStorage.removeItem("resultsNumber");
+				} else {
+					resultsNumber.innerHTML = `${displayedEventsFirst} to ${displayedEventsLast} of ${totalEvents} results`;
+					global.resultsNumber = resultsNumber.innerText;
+				}
+
 				resultsNumberContainer.prepend(resultsNumber);
+				localStorage.setItem(
+					"resultsNumber",
+					JSON.stringify(resultsNumber.innerHTML)
+				);
 			}
 
 			let map;
@@ -1259,3 +1295,14 @@ function galleryModal(action, lightbox) {
 		? (attractionsModal.style.display = "block")
 		: (attractionsModal.style.display = "none");
 }
+
+// if (
+// 	!currentPage === "/Events.html" ||
+// 	!currentPage.includes("/event-details")
+// ) {
+// 	window.addEventListener("unload", function () {
+// 		localStorage.removeItem("pageOffset");
+// 		localStorage.removeItem("eventCurrentPage");
+// 		localStorage.removeItem("resultsNumber");
+// 	});
+// }
