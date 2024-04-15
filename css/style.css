@@ -1082,12 +1082,26 @@ svg .MapLink {
 	-webkit-box-orient: vertical;
 	text-overflow: ellipsis;
 }
-.homeEvents {
-	height: 550px;
-	padding-top: 20px;
-	margin-top: -20px !important;
-	margin-bottom: 0px;
+.homeEvents {	
+	padding-top: 20px;	
 }
+.homeEvents a {	
+	color: black !important;
+}
+
+.homeEvents a:hover {	
+	text-decoration: none;
+}
+
+#innerHomeEvents{
+	min-height: 450px;
+}
+
+#innerHomeEvents {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.49);
+	border-radius: 5px;
+}
+
 .homeEvents .infoBox {
 	padding-left: 1.5vw;
 	padding-right: 1.5vw;
@@ -1097,8 +1111,8 @@ svg .MapLink {
 	margin-bottom: 10px;
 }
 .homeEvents img {
-	height: 260px;
-	width: 310px;
+	height: 200px;
+	width: 100%;
 	margin: auto;
 }
 .homeEvents .infoBox button {
@@ -1113,10 +1127,11 @@ svg .MapLink {
 }
 .homeEvents .eventTitle {
 	font-weight: bold;
-	text-decoration: underline;
 }
+
 #seeMore {
 	margin-left: 40px;
+	margin-top: 50px;
 	padding: 5px 20px 5px 20px;
 	color: white;
 	background-color: black;
@@ -1129,8 +1144,9 @@ svg .MapLink {
 }
 /* events Page */
 #searchBoxOuterContainer{
-	width: 80%;
+	width: 90%;
 	margin: auto;
+	padding: 0px 10px 0 10px;
 }
 
 #searchBoxContainer {
@@ -1193,7 +1209,8 @@ svg .MapLink {
 /*end of drop down list */
 /* Events Page Panels */
 #Allevents {
-	padding: 0 30px 0 30px;
+	width: 90%;
+	margin:auto;
 	justify-content:space-around ;
 	display: flex;
 	flex-direction: row;
@@ -1223,12 +1240,6 @@ svg .MapLink {
 #eventPanelContainerLink {
 	text-decoration: none;
 	color: black;
-}
-
-.eventsTabs {
-	margin: auto;
-	width: 80%;
-	cursor: pointer;
 }
 .eventPagePanel .boxImage {
 	width: 100%;
@@ -1260,9 +1271,16 @@ svg .MapLink {
 	font-size: 1.25vw	;
 	margin-bottom: 0.5vw;
 }
-#resultsDisplay, #pagination {
+ #pagination {
 	width: 90%;
 	margin: auto;
+	padding: 0 10px 0 10px;
+}
+
+#resultsDisplay {
+	width: 90%;
+	margin: auto;
+	padding: 0 10px 0 10px;
 }
 
 .page-counter {
@@ -2215,9 +2233,7 @@ footer {
 	padding-left: 5vw !important;
 	padding-right: 5vw !important;
 }
-.homeEvents {
-	margin-bottom: -2vw !important;
-}
+
 .homeEvents .infoBox button {
 	font-size: 1.4vw !important;
 	margin-right: 15px;
@@ -2269,20 +2285,14 @@ textarea {
 	margin: 0px;
 }
 /* home history */
-.homeEvents {
-	margin-bottom: -4vw !important;
-}
+
 .homeEvents .boxImage {
 	height: 35vw !important;
 }
 .nav-link {
 	font-size: 2.2vw;
 }
-.eventsTabs {
-	margin: auto;
-	width: 95%;
-	cursor: pointer;
-}
+
 .eventPagePanel {
 	width: 95%;
 	font-size: 2vw;
@@ -2324,11 +2334,7 @@ textarea {
 	font-size: 12px;
 }
 }
-@media only screen and (max-width: 690px) {
-.homeEvents {
-	margin-bottom: -5vw !important;
-}
-}
+
 @media (max-width: 610px) {
 .col-xs-6 {
 	width: 100%;
@@ -2685,9 +2691,7 @@ a.animated-button.slideNorth {
 }
 }
 @media (max-width: 500px) {
-.homeEvents {
-	margin-bottom: 0vw !important;
-}
+
 .homeEvents .infoBox button {
 	font-size: 2.8vw !important;
 }

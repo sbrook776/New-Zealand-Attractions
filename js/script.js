@@ -3,6 +3,8 @@
 	eventsCurrentPage: 1,
 	pageOffset: 0,
 	resultsDisplayNumber: ``,
+	eventResults: 8,
+	homeEventResults: 6,
 };
 
 let currentPage = global.currentPagePath;
@@ -13,13 +15,13 @@ let currentDate = new Date();
 // convert current date to string
 currentDateString = currentDate.toLocaleDateString("en-GB");
 // number of results to display
-const eventResults = 6;
+let eventResults = global.eventResults;
+let homeEventResults = global.homeEventResults;
 // For Google maps
 let eventName;
 let eventLat;
 let eventLng;
 
-console.log(currentPage);
 if (currentPage.includes("/event-details")) {
 	const eventId = window.location.search.split("=")[1];
 	displayResults(eventId);
@@ -54,7 +56,7 @@ async function displayResults(eventId) {
 	} else if (currentPage.includes("/event-details")) {
 		url = `https://api.eventfinda.co.nz/v2/events.json?id=${eventId}`;
 	} else if (currentPage === "/home.html") {
-		url = `https://api.eventfinda.co.nz/v2/events.json?rows=6`;
+		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${homeEventResults}`;
 	}
 	$.ajax({
 		url: url,
@@ -69,7 +71,8 @@ async function displayResults(eventId) {
 		success: function (xhr) {
 			hideSpinner();
 			const { events } = xhr;
-
+			eventResults = global.eventResults;
+			homeEventResults = global.homeEventResults;
 			if (currentPage.includes("event-details")) {
 				const singlePageEventContainer = document.createElement("div");
 				singlePageEventContainer.setAttribute("id", "eventContainer");
@@ -174,6 +177,18 @@ async function displayResults(eventId) {
 				} else {
 					eventDateDisplay = `${eventStartDayOfWeek} ${eventStartDay} ${eventStartMonthName} ${eventStartYear} ${eventStartTime} - ${eventEndTime}`;
 				}
+				let websiteContainer;
+				if (events[0].web_sites["@attributes"].count != 0) {
+					websiteContainer = document.createElement("div");
+					websiteContainer.setAttribute("id", "websiteContainer");
+					websiteContainer.innerHTML = `
+					<h4><strong>Website</strong></h4><div><i class="fa-solid fa-earth-americas"></i><a
+						href="${events[0].web_sites.web_sites[0].url}"
+						target="_blank">
+					${events[0].web_sites.web_sites[0].name}</a
+					></div>
+					`;
+				}
 
 				// append single event to DOM
 				console.log(events[0]);
@@ -198,21 +213,15 @@ async function displayResults(eventId) {
 					<div id="restrictionsContainer"><h4><strong>Restrictions:</strong></h4><div><i class="fa-solid fa-users"></i><div> ${events[0].restrictions}</div></div></div>
 					<span id="${eventName}Map"></span></div>
 					<div id="ticketOuterContainer"><div><h4><strong>Tickets</strong></h4></div></div>			
-					<div id="websiteContainer"><h4><strong>Website</strong></h4><div><i class="fa-solid fa-earth-americas"></i><a
-					href="${events[0].web_sites.web_sites[0].url}"
-					target="_blank"
-				>
-				${events[0].web_sites.web_sites[0].name}</a
-				></div></div>	
-
-
+					<div id="websiteOuterContainer"></div>	
 					<hr />
-					<div id="mapContainer">
+					<div id="mapContainer"></div></div>
 					<div id="googleMapLocationName"><div><i class="fa-solid fa-location-dot"></i> ${eventLoc}</div></div>
 					<div id="map">
 					</div>
 			</div>
 				`;
+
 				document
 					.getElementById("eventContainerOuter")
 					.appendChild(singlePageEventContainer);
@@ -239,6 +248,12 @@ async function displayResults(eventId) {
 					});
 				}
 				ticketOuterContainer.appendChild(ticketContainer);
+
+				if (events[0].web_sites["@attributes"].count != 0) {
+					document
+						.getElementById("websiteOuterContainer")
+						.appendChild(websiteContainer);
+				}
 
 				const fiveSessionsContainer = document.createElement("div");
 				fiveSessionsContainer.setAttribute("id", "fiveSessionsContainer");
@@ -293,7 +308,22 @@ async function displayResults(eventId) {
 					.getElementById("sessionsContainer")
 					.append(fiveSessionsContainer);
 			}
+			// to counteract weird bug with API returning 1 less than its supposed to.
 			if (currentPage === "/home.html") {
+				let { events } = xhr;
+				if (events.length != homeEventResults) {
+					console.log("does not equal");
+					homeEventResults++;
+					displayResults();
+				}
+
+				const homeEventsContainerOuter = document.getElementById(
+					"homeEventsContainerOuter"
+				);
+				homeEventsContainerOuter.innerHTML = "";
+				const homeEventsContainerInner = document.createElement("div");
+				homeEventsContainerInner.setAttribute("id", "homeEventsContainerInner");
+				homeEventsContainerOuter.appendChild(homeEventsContainerInner);
 				events.forEach((event) => {
 					const eventUrl = event.web_sites.web_sites;
 					// get event location
@@ -333,29 +363,40 @@ async function displayResults(eventId) {
 					eventsContainerHome.classList.add("col-xs-6");
 					eventsContainerHome.classList.add("col-md-4");
 					eventsContainerHome.innerHTML = `
+					<a href="event-details.html?id=${event.id}">
+					<div id="innerHomeEvents">
 					<img
 						alt="${event.name}"
 						class="boxImage img-responsive"
 						src="${eventImage}"
-				/></a>
+				/>
 				<div class="infoBox">
 					<h4 class="eventTitle">${event.name}</h4>
-					<div class="eventDate"><strong>When:${eventDate} ${eventStartHours}${eventStartMinutes}${amPm}
+					<div class="eventDate"><strong>When:</strong> ${eventDate} ${eventStartHours}${eventStartMinutes}${amPm}</div>
 					<div class="eventLocation">
-						<strong>Location:</strong> Christchurch
+						<strong>Location:</strong> ${eventLocation}
 					</div>
 					<div class="eventDescription">
 					${event.description}
 					</div>
-					<button onclick="window.location.href='event-details.html?id=${event.id}'">
-						MORE INFO
-					</button>
 				</div>
+				</div>	
+				</a>
 					`;
-					const homeEventsContainerOuter = document
-						.getElementById("homeEventsContainerOuter")
-						.appendChild(eventsContainerHome);
+
+					homeEventsContainerInner.appendChild(eventsContainerHome);
 				});
+
+				const homeSeemoreEventsButton = document.createElement("button");
+				homeSeemoreEventsButton.setAttribute("id", "seeMore");
+				homeSeemoreEventsButton.innerText = "MORE EVENTS";
+				homeSeemoreEventsButton.addEventListener("click", function () {
+					localStorage.removeItem("pageOffset");
+					localStorage.removeItem("eventCurrentPage");
+					localStorage.removeItem("resultsNumber");
+					window.location.href = "Events.html";
+				});
+				homeEventsContainerOuter.appendChild(homeSeemoreEventsButton);
 			}
 
 			if (currentPage === "/Events.html") {
@@ -367,6 +408,11 @@ async function displayResults(eventId) {
 				let eventTotalPages = Math.ceil(totalEvents / eventResults);
 				let eventCurrentPage = global.eventsCurrentPage;
 				let { events } = xhr;
+				if (events.length != eventResults) {
+					console.log("does not equal");
+					eventResults++;
+					displayResults();
+				}
 
 				events.forEach((event) => {
 					const eventUrl = event.web_sites.web_sites;
@@ -430,7 +476,7 @@ async function displayResults(eventId) {
 		`;
 					const eventsContainerOuter = document
 						.getElementById("Allevents")
-						.appendChild(eventsContainer);
+						.append(eventsContainer);
 				});
 
 				const eventsContainerInner = document.getElementById("pagination");
@@ -499,9 +545,9 @@ async function displayResults(eventId) {
 						});
 				}
 				const resultsNumberContainer =
-					document.querySelector(".eventsContainer");
+					document.getElementById("resultsDisplay");
 				const resultsNumber = document.createElement("div");
-				resultsNumber.setAttribute("id", "resultsDisplay");
+
 				// results display number for events
 				let displayedEventsFirst;
 				let displayedEventsLast;
@@ -651,7 +697,7 @@ navContainer.innerHTML = `
 					</li>
 				</ul>
 			</li>
-			<li class="hoverEffect inactive">
+			<li id="eventsTab" class="hoverEffect inactive">
 				<a href="Events.html" class="selectActive Events">Events</a>
 			</li>
 			<li class="hoverEffect dropdown">
@@ -1296,13 +1342,11 @@ function galleryModal(action, lightbox) {
 		: (attractionsModal.style.display = "none");
 }
 
-// if (
-// 	!currentPage === "/Events.html" ||
-// 	!currentPage.includes("/event-details")
-// ) {
-// 	window.addEventListener("unload", function () {
-// 		localStorage.removeItem("pageOffset");
-// 		localStorage.removeItem("eventCurrentPage");
-// 		localStorage.removeItem("resultsNumber");
-// 	});
-// }
+// resets events page to 1 after clicking events tab.
+const eventsTab = document
+	.getElementById("eventsTab")
+	.addEventListener("click", function () {
+		localStorage.removeItem("pageOffset");
+		localStorage.removeItem("eventCurrentPage");
+		localStorage.removeItem("resultsNumber");
+	});

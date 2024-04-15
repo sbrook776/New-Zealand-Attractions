@@ -1,21 +1,13 @@
-convert jquery to javascript
 impliment API from any possible sources
 search box for events page
 fix scroll behavior on interactive map
 make search bar for website
 clear up obsolete files
-insert header and footer using javascript for all pages
 get updated boostrap files
 make website reponsive
 add captia to contact form.
-fix hover on event page icon
-add loading spinner
 drop down box of filter by location- pull from location
-link to see more page.
-redo events page to make image wider
 make filter for events page (location etc)
-fix events on home page
 accept cookies pop up
-redo events page. fix pagination
-fix see more events button on home page
-clear local storage when clicking events page
+add weather widget
+make database to store api key
