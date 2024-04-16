@@ -2225,6 +2225,49 @@ footer {
 	color: white !important;
 	width: 100% !important;
 }
+/* Cookie box */
+#cookieContainer{
+	display: none;
+	z-index: 10000;
+	/* display: flex; */
+	flex-direction: column;
+	justify-content: center;
+	background-color: white;
+	color: black;
+	width: 270px;
+	height: auto;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 30px 40px;
+	box-shadow: 0 10px 24px 0 rgba(54, 61, 77, 0.15);
+}
+
+#cookieContainer h4 {
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+#cookieContainer button {
+	font-weight: bold;
+	font-size:13px;
+	text-transform: uppercase;
+	width: 100%;
+	border-radius: 0;
+	background-color: white;
+	border: 2px solid black;
+	padding: 7px 10px;
+
+}
+#cookieContainer button:hover {
+	background-color: black;
+	color: white;
+}
+#cookieContainer p {
+margin-bottom: 20px;
+
+}
+
 @media only screen and (max-width: 1200px) {
 .treatyInfoImg {
 	margin-bottom: 3vw !important;

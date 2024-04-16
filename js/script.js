@@ -6,10 +6,12 @@
 	eventResults: 8,
 	homeEventResults: 6,
 };
-
+let acceptCookies;
 let currentPage = global.currentPagePath;
 // page offset for pagination
 let pageOffset = global.pageOffset;
+// Last page unloaded
+let lastPageUnloaded;
 let resultsDisplayNumber;
 let currentDate = new Date();
 // convert current date to string
@@ -22,6 +24,17 @@ let homeEventResults = global.homeEventResults;
 let eventName;
 let eventLat;
 let eventLng;
+
+lastPageUnloaded = localStorage.getItem("lastPageUnloaded");
+console.log(lastPageUnloaded);
+
+// resets page memory if moving from search results back to events page
+if (
+	currentPage === "/Events.html" &&
+	lastPageUnloaded.includes("/Events-results.html")
+) {
+	clearEventLocalStorage();
+}
 
 if (currentPage.includes("/event-details")) {
 	const eventId = window.location.search.split("=")[1];
@@ -36,7 +49,10 @@ if (currentPage === "/Events.html" || currentPage === "/home.html") {
 // 	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
 // }
 
-if (currentPage === "/Events-results.html" || currentPage === "/Events.html") {
+if (
+	currentPage.includes("/Events-results.html") ||
+	currentPage === "/Events.html"
+) {
 	const eventSearchForm = document.getElementById("eventSearchForm");
 	eventSearchForm.addEventListener("submit", eventSearchFunction);
 	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
@@ -843,6 +859,12 @@ footerContainer.innerHTML = `
 				</div>
 			</div>
 			<!-- bottom footer -->
+			<!-- cookies pop up -->
+			<div id="cookieContainer">
+			<h4>We use cookies</h4>
+			<p>Cookies help us deliver the best experience on our website. By using our website, you agree to the use of cookies</p>
+			<button id="cookiesButton">Accept</button>
+			</div>
 			<div class="bottomFooter">
 				<p id="footerBottom">&copy; copyright 2024 Revelation Studios</p>
 			</div>
@@ -1390,3 +1412,25 @@ function clearEventLocalStorage() {
 	localStorage.removeItem("eventCurrentPage");
 	localStorage.removeItem("resultsNumber");
 }
+
+window.addEventListener("beforeunload", function () {
+	lastPageUnloaded = window.location.href;
+	localStorage.setItem("lastPageUnloaded", JSON.stringify(lastPageUnloaded));
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+	if (JSON.parse(localStorage.getItem("cookiesAccepted")) != true) {
+		const cookiesContainer = (document.getElementById(
+			"cookieContainer"
+		).style.display = "flex");
+	}
+});
+
+const cookiesBtn = document.getElementById("cookiesButton");
+cookiesBtn.addEventListener("click", function () {
+	acceptCookies = true;
+	const cookiesContainer = (document.getElementById(
+		"cookieContainer"
+	).style.display = "none");
+	localStorage.setItem("cookiesAccepted", JSON.stringify(acceptCookies));
+});

@@ -1,5 +1,4 @@
 impliment API from any possible sources
-search box for events page
 fix scroll behavior on interactive map
 make search bar for website
 clear up obsolete files
