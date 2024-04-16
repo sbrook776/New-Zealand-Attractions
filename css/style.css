@@ -1074,6 +1074,13 @@ svg .MapLink {
 	width: 50%;
 }
 /* home page events */
+#homeEventsContainerInner {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: stretch !important;
+}
+
 .homeEvents .eventDescription {
 	height: 80px;
 	display: -webkit-box;
@@ -1084,6 +1091,8 @@ svg .MapLink {
 }
 .homeEvents {	
 	padding-top: 20px;	
+	width: 30%;
+	align-self: stretch;
 }
 .homeEvents a {	
 	color: black !important;
@@ -1094,7 +1103,7 @@ svg .MapLink {
 }
 
 #innerHomeEvents{
-	min-height: 450px;
+	min-height: 440px;
 }
 
 #innerHomeEvents {
@@ -1102,11 +1111,6 @@ svg .MapLink {
 	border-radius: 5px;
 }
 
-.homeEvents .infoBox {
-	padding-left: 1.5vw;
-	padding-right: 1.5vw;
-	margin: 0px;
-}
 .homeEvents .eventLocation {
 	margin-bottom: 10px;
 }
@@ -1115,6 +1119,11 @@ svg .MapLink {
 	width: 100%;
 	margin: auto;
 }
+
+.infoBox {
+	padding: 10px;
+}
+
 .homeEvents .infoBox button {
 	font-size: 1.1vw;
 	margin-right: 1vw;
@@ -1127,6 +1136,11 @@ svg .MapLink {
 }
 .homeEvents .eventTitle {
 	font-weight: bold;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	text-overflow: ellipsis;
 }
 
 #seeMore {
@@ -1144,41 +1158,51 @@ svg .MapLink {
 }
 /* events Page */
 #searchBoxOuterContainer{
-	width: 90%;
-	margin: auto;
-	padding: 0px 10px 0 10px;
+	display: flex;
+	justify-content: center;
 }
 
-#searchBoxContainer {
+#eventSearchForm {
 	background-color: black;
+	width: 100%;
 	display: flex;
-	display: inline-flex;
 	align-items: center;
-	justify-items: center;
+	justify-content: center;
 	/* height: 28px; */	
 	margin-bottom: 20px;
-	padding: 25px 40px;
+	padding: 45px 40px;
 	font-size: 14px;
 }
 
-#searchBoxContainer label{
+#eventSearchForm label{
 	margin-right: 20px;
 	color: white;
 }
 #searchEvents {
-	height: 25px;
 	width: 250px;
+	padding: 5px 10px;
+}
+#searchEvents:focus {
+	outline: none;
 }
 
-#searchIconContainer {
+#eventSearchButton {
 	display: flex;
-	width: 25px;
-	height: 25px;
+	width: 33px;
+	height: 33px;
 	justify-content: center;
 	align-items: center;
 	user-select: none;
 	color: white;	
+	background-color: black;
+	border-radius: 0 5px 5px 0;
+	border: 1px solid black;
 }
+
+#eventSearchButton:hover {
+	filter:invert(100);
+}
+
 .eventTab {
 	border: 1px solid black !important;
 	color: black;
@@ -1264,11 +1288,11 @@ svg .MapLink {
 }
 
 .eventDate {
-	font-size: 1.25vw;
+	font-size: 14px;
 	margin-bottom: 0.1vw;
 }
 .eventLocation {
-	font-size: 1.25vw	;
+	font-size: 14px;
 	margin-bottom: 0.5vw;
 }
  #pagination {
@@ -2229,10 +2253,6 @@ footer {
 	bottom: 0.1vw !important;
 	left: 2vw !important;
 }
-.infoBox {
-	padding-left: 5vw !important;
-	padding-right: 5vw !important;
-}
 
 .homeEvents .infoBox button {
 	font-size: 1.4vw !important;
@@ -2253,12 +2273,6 @@ footer {
 	margin-bottom: 40px;
 }
 }
-@media only screen and (max-width: 850px) {
-.infoBox {
-	padding-left: 2vw !important;
-	padding-right: 2vw !important;
-}
-}
 /* Extra small devices (phones, 768px and down) */
 @media only screen and (max-width: 768px) {
 .navigationLinks li a {
@@ -2266,10 +2280,6 @@ footer {
 }
 .myControl {
 	font-size: 5vw;
-}
-.infoBox {
-	padding-left: 20px;
-	padding-right: 20px;
 }
 .socialNav {
 	display: none;
@@ -2280,9 +2290,6 @@ textarea {
 }
 .lightImg {
 	height: 25vw !important;
-}
-.homeEvents .infoBox {
-	margin: 0px;
 }
 /* home history */
 
@@ -2346,12 +2353,7 @@ textarea {
 	height: 60vw !important;
 	width: 90% !important;
 }
-.homeEvents .infoBox {
-	margin-left: 4vw !important;
-}
-.homeEvents .infoBox button {
-	font-size: 2.3vw !important;
-}
+
 .lightImg {
 	height: 50vw !important;
 }
@@ -2690,13 +2692,6 @@ a.animated-button.slideNorth {
 	width: 20vw;
 }
 }
-@media (max-width: 500px) {
-
-.homeEvents .infoBox button {
-	font-size: 2.8vw !important;
-}
-}
-
 /* Events Page Media Queries */
 /* put largest lower */
 

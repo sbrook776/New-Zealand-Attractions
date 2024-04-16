@@ -16,6 +16,7 @@ let currentDate = new Date();
 currentDateString = currentDate.toLocaleDateString("en-GB");
 // number of results to display
 let eventResults = global.eventResults;
+let searchString;
 let homeEventResults = global.homeEventResults;
 // For Google maps
 let eventName;
@@ -28,12 +29,29 @@ if (currentPage.includes("/event-details")) {
 }
 if (currentPage === "/Events.html" || currentPage === "/home.html") {
 	displayResults();
+}
+
+// if (currentPage === "/Events.html") {
+// 	displayResults();
+// 	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
+// }
+
+if (currentPage === "/Events-results.html" || currentPage === "/Events.html") {
+	const eventSearchForm = document.getElementById("eventSearchForm");
+	eventSearchForm.addEventListener("submit", eventSearchFunction);
 	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
 }
 
-if (currentPage === "/Events.html") {
-	displayResults();
-	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
+function eventSearchFunction(e) {
+	e.preventDefault();
+	clearEventLocalStorage();
+	const eventSearchInput = document.getElementById("searchEvents").value;
+	window.location.href = `Events-results.html?search=${eventSearchInput}`;
+}
+
+if (currentPage.includes("Events-results")) {
+	searchString = window.location.search.split("=")[1];
+	displayResults(searchString);
 }
 
 // Had to use this AJAX call as other methods blocked by CORS policy
@@ -57,6 +75,8 @@ async function displayResults(eventId) {
 		url = `https://api.eventfinda.co.nz/v2/events.json?id=${eventId}`;
 	} else if (currentPage === "/home.html") {
 		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${homeEventResults}`;
+	} else if (currentPage === "/Events-results.html") {
+		url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&)`;
 	}
 	$.ajax({
 		url: url,
@@ -360,10 +380,10 @@ async function displayResults(eventId) {
 					}
 					const eventsContainerHome = document.createElement("div");
 					eventsContainerHome.classList.add("homeEvents");
-					eventsContainerHome.classList.add("col-xs-6");
-					eventsContainerHome.classList.add("col-md-4");
+					// eventsContainerHome.classList.add("col-xs-6");
+					// eventsContainerHome.classList.add("col-md-4");
 					eventsContainerHome.innerHTML = `
-					<a href="event-details.html?id=${event.id}">
+					<a href="event-details.html?id=${event.id}" title="${event.name}">
 					<div id="innerHomeEvents">
 					<img
 						alt="${event.name}"
@@ -399,7 +419,10 @@ async function displayResults(eventId) {
 				homeEventsContainerOuter.appendChild(homeSeemoreEventsButton);
 			}
 
-			if (currentPage === "/Events.html") {
+			if (
+				currentPage === "/Events.html" ||
+				currentPage === "/Events-results.html"
+			) {
 				const totalEvents = xhr["@attributes"].count;
 				document.querySelector("#Allevents").innerHTML = "";
 				document.querySelector("#resultsDisplay").innerHTML = "";
@@ -411,7 +434,11 @@ async function displayResults(eventId) {
 				if (events.length != eventResults) {
 					console.log("does not equal");
 					eventResults++;
-					displayResults();
+					if (currentPage === "/Events-results.html") {
+						displayResults(searchString);
+					} else {
+						displayResults();
+					}
 				}
 
 				events.forEach((event) => {
@@ -520,7 +547,11 @@ async function displayResults(eventId) {
 							console.log(resultsNumber);
 							localStorage.removeItem("resultsNumber");
 							window.scrollTo(0, 0);
-							displayResults();
+							if (currentPage === "/Events-results.html") {
+								displayResults(searchString);
+							} else {
+								displayResults();
+							}
 						});
 					// Prev page
 					document
@@ -541,7 +572,11 @@ async function displayResults(eventId) {
 							console.log(resultsNumber);
 							localStorage.removeItem("resultsNumber");
 							window.scrollTo(0, 0);
-							displayResults();
+							if (currentPage === "/Events-results.html") {
+								displayResults(searchString);
+							} else {
+								displayResults();
+							}
 						});
 				}
 				const resultsNumberContainer =
@@ -573,6 +608,9 @@ async function displayResults(eventId) {
 					"resultsNumber",
 					JSON.stringify(resultsNumber.innerHTML)
 				);
+			}
+
+			if (currentPage === "/Events-results.html") {
 			}
 
 			let map;
@@ -1146,20 +1184,20 @@ function tabEvents(tab) {
 	}
 }
 
-const eventSearchBox = document.getElementById("searchEvents");
-if (eventSearchBox) {
-	eventSearchBox.addEventListener("input", filterEvents);
-}
-function filterEvents(e) {
-	const eventContainer = document.querySelectorAll(".eventPagePanel");
-	const eventSearchTerm = e.target.value.trim().toLowerCase();
-	eventContainer.forEach((event) => {
-		event.style.display = "revert";
-		if (!event.innerText.toLowerCase().includes(eventSearchTerm)) {
-			event.style.display = "none";
-		}
-	});
-}
+// const eventSearchBox = document.getElementById("searchEvents");
+// if (eventSearchBox) {
+// 	eventSearchBox.addEventListener("input", filterEvents);
+// }
+// function filterEvents(e) {
+// 	const eventContainer = document.querySelectorAll(".eventPagePanel");
+// 	const eventSearchTerm = e.target.value.trim().toLowerCase();
+// 	eventContainer.forEach((event) => {
+// 		event.style.display = "revert";
+// 		if (!event.innerText.toLowerCase().includes(eventSearchTerm)) {
+// 			event.style.display = "none";
+// 		}
+// 	});
+// }
 
 //attractions click events
 // attractions text animations
@@ -1345,8 +1383,10 @@ function galleryModal(action, lightbox) {
 // resets events page to 1 after clicking events tab.
 const eventsTab = document
 	.getElementById("eventsTab")
-	.addEventListener("click", function () {
-		localStorage.removeItem("pageOffset");
-		localStorage.removeItem("eventCurrentPage");
-		localStorage.removeItem("resultsNumber");
-	});
+	.addEventListener("click", clearEventLocalStorage);
+
+function clearEventLocalStorage() {
+	localStorage.removeItem("pageOffset");
+	localStorage.removeItem("eventCurrentPage");
+	localStorage.removeItem("resultsNumber");
+}
