@@ -1,8 +1,10 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 /*body*/
 body {
 	background-image: url('../Images/fernbackground2.jpg');
+	font-family: Sora;
 }
 .container-fluid {
 	overflow-x: hidden;
@@ -314,7 +316,7 @@ font-size: 15px;
 	clear: both;
 }
 .subHeading {
-	width: 92.5%;
+	width: 90%;
 	margin: auto;
 	font-size: 2vw;
 	text-align: center;
@@ -1009,7 +1011,7 @@ svg .MapLink {
 #waitangiText {
 	position: absolute;
 	top: 12.3vw;
-	left: 1.1vw;
+	left: 1vw;
 	opacity: 0;
 	font-size: 1.1vw;
 	font-weight: bold;
@@ -1041,7 +1043,7 @@ svg .MapLink {
 	top: 12.3vw;
 	left: 0.35vw;
 	opacity: 0;
-	font-size: 1.1vw;
+	font-size: 1vw;
 	font-weight: bold;
 	width: 11.5vw;
 }
@@ -1114,10 +1116,20 @@ svg .MapLink {
 .homeEvents .eventLocation {
 	margin-bottom: 10px;
 }
-.homeEvents img {
-	height: 200px;
-	width: 100%;
+
+
+.homeEventImageContainer {
 	margin: auto;
+}
+
+/* .homeEventImageContainer, .homeEventImageContainer img {
+
+} */
+
+.homeEvents img{
+	object-fit: cover;
+	width: 100%;
+	height: 180px;	
 }
 
 .infoBox {
@@ -1143,13 +1155,15 @@ svg .MapLink {
 	text-overflow: ellipsis;
 }
 
+
+
 #seeMore {
 	margin-left: 40px;
 	margin-top: 50px;
 	padding: 5px 20px 5px 20px;
 	color: white;
 	background-color: black;
-	border: 1px solid black;
+	border: 2px solid black;
 	border-radius: 3px;
 }
 #seeMore:hover {
@@ -1267,6 +1281,8 @@ svg .MapLink {
 }
 .eventPagePanel .boxImage {
 	width: 100%;
+	height: 240px;
+	object-fit: cover;
 	border-radius: 4px 4px 0 0;
 }
 .boxImage:hover {
@@ -1314,9 +1330,15 @@ svg .MapLink {
 #next, #prev {
 	background-color: black;
 	color: white;
-	outline: none;
+	border: 2px solid black;
 	border-radius: 2px;
 	padding: 3px 10px;
+}
+
+
+#next:hover, #prev:hover {
+	background-color: white;
+	color: black;
 }
 
 /* single event pages */
@@ -2335,14 +2357,9 @@ textarea {
 	height: 25vw !important;
 }
 /* home history */
-
-.homeEvents .boxImage {
-	height: 35vw !important;
-}
 .nav-link {
 	font-size: 2.2vw;
 }
-
 .eventPagePanel {
 	width: 95%;
 	font-size: 2vw;

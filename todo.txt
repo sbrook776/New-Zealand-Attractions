@@ -7,5 +7,5 @@ make website reponsive
 add captia to contact form.
 drop down box of filter by location- pull from location
 make filter for events page (location etc)
-accept cookies pop up
 make database to store api key
+fix images stretching for events

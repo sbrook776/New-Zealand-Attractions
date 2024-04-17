@@ -25,6 +25,93 @@ let eventName;
 let eventLat;
 let eventLng;
 
+const regions = [
+	{
+		name: "Virtual",
+		id: 34045,
+	},
+	{
+		name: "Northland",
+		id: 1,
+	},
+	{
+		name: "Auckland",
+		id: 2,
+	},
+	{
+		name: "The Coromandel",
+		id: 41,
+	},
+	{
+		name: "Hawke's Bay / Gisbourne",
+		id: 6,
+	},
+	{
+		name: "Waikato",
+		id: 3,
+	},
+	{
+		name: "Bay of Plenty",
+		id: 4,
+	},
+	{
+		name: "Manawatu / Whanganui",
+		id: 9,
+	},
+	{
+		name: "Wellington Region",
+		id: 11,
+	},
+	{
+		name: "Nelson / Tasman",
+		id: 12,
+	},
+	{
+		name: "Marlborough",
+		id: 13,
+	},
+	{
+		name: "West Coast",
+		id: 14,
+	},
+	{
+		name: "Canterbury",
+		id: 15,
+	},
+	{
+		name: "Otago",
+		id: 17,
+	},
+	{
+		name: "Southland",
+		id: 18,
+	},
+];
+
+// for getting location API needs to be converted to ajax
+async function getAPIDataLocations() {
+	const username = "myportfolio";
+	const password = "tjdd9wm89ssf";
+	$.ajax({
+		url: "https://api.eventfinda.co.nz/v2/locations.json?autocomplete=Southland",
+		dataType: "jsonp",
+		type: "GET",
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader(
+				"Authorization",
+				"Basic " + btoa(username + ":" + password)
+			);
+		},
+		success: function (xhr) {
+			console.log(xhr);
+		},
+	});
+}
+getAPIDataLocations();
+
+//eventfinda locations
+// https://api.eventfinda.co.nz/v2/locations.xml
+
 lastPageUnloaded = localStorage.getItem("lastPageUnloaded");
 console.log(lastPageUnloaded);
 
@@ -70,7 +157,7 @@ if (currentPage.includes("Events-results")) {
 	displayResults(searchString);
 }
 
-// Had to use this AJAX call as other methods blocked by CORS policy
+// Had to use this AJAX call to get events as other methods blocked by CORS policy
 async function displayResults(eventId) {
 	showSpinner();
 	const username = "myportfolio";
@@ -86,7 +173,8 @@ async function displayResults(eventId) {
 
 	let url;
 	if (currentPage === "/Events.html") {
-		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${eventResults}&offset=${pageOffset}`;
+		// url = `https://api.eventfinda.co.nz/v2/events.json?rows=${eventResults}&offset=${pageOffset}`;
+		url = `https://api.eventfinda.co.nz/v2/events.json?location=2&rows=${eventResults}&offset=${pageOffset}`;
 	} else if (currentPage.includes("/event-details")) {
 		url = `https://api.eventfinda.co.nz/v2/events.json?id=${eventId}`;
 	} else if (currentPage === "/home.html") {
@@ -400,7 +488,7 @@ async function displayResults(eventId) {
 					// eventsContainerHome.classList.add("col-md-4");
 					eventsContainerHome.innerHTML = `
 					<a href="event-details.html?id=${event.id}" title="${event.name}">
-					<div id="innerHomeEvents">
+					<div id="innerHomeEvents">					
 					<img
 						alt="${event.name}"
 						class="boxImage img-responsive"
@@ -497,6 +585,7 @@ async function displayResults(eventId) {
 			
 			<a id="eventPanelContainerLink" href="event-details.html?id=${event.id}">	
 			<div class="eventPagePanelInner">
+			
 				<img
 					alt="${event.name}"
 					class="boxImage img-responsive"
