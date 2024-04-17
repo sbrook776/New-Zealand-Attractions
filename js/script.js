@@ -27,6 +27,10 @@ let eventLng;
 
 const regions = [
 	{
+		name: "All Regions",
+		id: "",
+	},
+	{
 		name: "Virtual",
 		id: 34045,
 	},
@@ -88,6 +92,20 @@ const regions = [
 	},
 ];
 
+// For locations drop down on
+function regionDropDown() {
+	const eventsRegionDropDown = document.getElementById("regionDropDown");
+	regions.forEach((region) => {
+		const regionOption = document.createElement("option");
+		regionOption.setAttribute("value", region.id);
+		regionOption.innerText = region.name;
+		eventsRegionDropDown.appendChild(regionOption);
+	});
+}
+if (currentPage === "/Events.html" || currentPage.includes("/Events-results")) {
+	regionDropDown();
+}
+
 // for getting location API needs to be converted to ajax
 async function getAPIDataLocations() {
 	const username = "myportfolio";
@@ -124,7 +142,7 @@ if (
 }
 
 if (currentPage.includes("/event-details")) {
-	const eventId = window.location.search.split("=")[1];
+	const eventId = window.location.search.split("id=")[1];
 	displayResults(eventId);
 }
 if (currentPage === "/Events.html" || currentPage === "/home.html") {
@@ -149,16 +167,18 @@ function eventSearchFunction(e) {
 	e.preventDefault();
 	clearEventLocalStorage();
 	const eventSearchInput = document.getElementById("searchEvents").value;
-	window.location.href = `Events-results.html?search=${eventSearchInput}`;
+	const regionDropDown = document.getElementById("regionDropDown").value;
+	window.location.href = `Events-results.html?search=${eventSearchInput}&region=${regionDropDown}`;
 }
 
 if (currentPage.includes("Events-results")) {
-	searchString = window.location.search.split("=")[1];
-	displayResults(searchString);
+	searchString = window.location.search.split("search=")[1];
+	searchRegion = window.location.search.split("region=")[1];
+	displayResults(searchString, searchRegion);
 }
 
 // Had to use this AJAX call to get events as other methods blocked by CORS policy
-async function displayResults(eventId) {
+async function displayResults(eventId, searchRegion) {
 	showSpinner();
 	const username = "myportfolio";
 	const password = "tjdd9wm89ssf";
@@ -180,7 +200,7 @@ async function displayResults(eventId) {
 	} else if (currentPage === "/home.html") {
 		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${homeEventResults}`;
 	} else if (currentPage === "/Events-results.html") {
-		url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&)`;
+		url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion})`;
 	}
 	$.ajax({
 		url: url,
