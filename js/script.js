@@ -92,8 +92,32 @@ const regions = [
 	},
 ];
 
+const ticketPriceRange = [
+	{
+		name: "All Prices",
+		id: 0,
+	},
+	{
+		name: "Free",
+		id: 1,
+	},
+	{
+		name: "Under $20",
+		id: 2,
+	},
+	{
+		name: "$20 - $50",
+		id: 3,
+	},
+	{
+		name: "$50 or more",
+		id: 4,
+	},
+];
+
 // For locations drop down on
-function regionDropDown() {
+function eventSearchDropDowns() {
+	// regions drop down
 	const eventsRegionDropDown = document.getElementById("regionDropDown");
 	regions.forEach((region) => {
 		const regionOption = document.createElement("option");
@@ -101,9 +125,17 @@ function regionDropDown() {
 		regionOption.innerText = region.name;
 		eventsRegionDropDown.appendChild(regionOption);
 	});
+	// price range drop down
+	const ticketPriceDropDown = document.getElementById("ticketPriceDropDown");
+	ticketPriceRange.forEach((price) => {
+		const priceOption = document.createElement("option");
+		priceOption.setAttribute("value", price.id);
+		priceOption.innerText = price.name;
+		ticketPriceDropDown.appendChild(priceOption);
+	});
 }
 if (currentPage === "/Events.html" || currentPage.includes("/Events-results")) {
-	regionDropDown();
+	eventSearchDropDowns();
 }
 
 // for getting location API needs to be converted to ajax
@@ -131,7 +163,6 @@ getAPIDataLocations();
 // https://api.eventfinda.co.nz/v2/locations.xml
 
 lastPageUnloaded = localStorage.getItem("lastPageUnloaded");
-console.log(lastPageUnloaded);
 
 // resets page memory if moving from search results back to events page
 if (
@@ -160,7 +191,6 @@ if (
 ) {
 	const eventSearchForm = document.getElementById("eventSearchForm");
 	eventSearchForm.addEventListener("submit", eventSearchFunction);
-	// displayResults(`rows=${eventResults}&offset=${pageOffset}`);
 }
 
 function eventSearchFunction(e) {
@@ -168,17 +198,22 @@ function eventSearchFunction(e) {
 	clearEventLocalStorage();
 	const eventSearchInput = document.getElementById("searchEvents").value;
 	const regionDropDown = document.getElementById("regionDropDown").value;
-	window.location.href = `Events-results.html?search=${eventSearchInput}&region=${regionDropDown}`;
+	const ticketPriceDropDown = document.getElementById(
+		"ticketPriceDropDown"
+	).value;
+	window.location.href = `Events-results.html?search=${eventSearchInput}&region=${regionDropDown}&priceRange=${ticketPriceDropDown}`;
 }
 
 if (currentPage.includes("Events-results")) {
 	searchString = window.location.search.split("search=")[1];
 	searchRegion = window.location.search.split("region=")[1];
-	displayResults(searchString, searchRegion);
+	searchTicketPrices = window.location.search.split("priceRange=")[1];
+	console.log(searchTicketPrices);
+	displayResults(searchString, searchRegion, searchTicketPrices);
 }
 
 // Had to use this AJAX call to get events as other methods blocked by CORS policy
-async function displayResults(eventId, searchRegion) {
+async function displayResults(eventId, searchRegion, priceRange) {
 	showSpinner();
 	const username = "myportfolio";
 	const password = "tjdd9wm89ssf";
@@ -200,7 +235,23 @@ async function displayResults(eventId, searchRegion) {
 	} else if (currentPage === "/home.html") {
 		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${homeEventResults}`;
 	} else if (currentPage === "/Events-results.html") {
-		url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion})`;
+		switch (priceRange) {
+			case "0":
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}`;
+				break;
+			case "1":
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&free=1`;
+				break;
+			case "2":
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_max=20`;
+				break;
+			case "3":
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=20&price_max=50`;
+				break;
+			case "4":
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=50`;
+				break;
+		}
 	}
 	$.ajax({
 		url: url,

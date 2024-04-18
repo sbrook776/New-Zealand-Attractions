@@ -8,4 +8,7 @@ add captia to contact form.
 drop down box of filter by location- pull from location
 make filter for events page (location etc)
 make database to store api key
-fix images stretching for events
+format search box area
+add date range search
+add price search
+arrange script page for easier readability
