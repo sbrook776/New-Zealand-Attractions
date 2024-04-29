@@ -14,6 +14,7 @@ let pageOffset = global.pageOffset;
 let lastPageUnloaded;
 let resultsDisplayNumber;
 let currentDate = new Date();
+const formattedCurrentDate = currentDate.toISOString().split("T")[0];
 // convert current date to string
 currentDateString = currentDate.toLocaleDateString("en-GB");
 // number of results to display
@@ -135,6 +136,8 @@ function eventSearchDropDowns() {
 	});
 }
 if (currentPage === "/Events.html" || currentPage.includes("/Events-results")) {
+	document.getElementById("eventStartDate").min = formattedCurrentDate;
+	document.getElementById("eventEndDate").min = formattedCurrentDate;
 	eventSearchDropDowns();
 }
 
@@ -152,9 +155,7 @@ async function getAPIDataLocations() {
 				"Basic " + btoa(username + ":" + password)
 			);
 		},
-		success: function (xhr) {
-			console.log(xhr);
-		},
+		success: function (xhr) {},
 	});
 }
 getAPIDataLocations();
@@ -201,14 +202,44 @@ function eventSearchFunction(e) {
 	const ticketPriceDropDown = document.getElementById(
 		"ticketPriceDropDown"
 	).value;
-	window.location.href = `Events-results.html?search=${eventSearchInput}&region=${regionDropDown}&priceRange=${ticketPriceDropDown}`;
+	let eventStartDate = document.getElementById("eventStartDate").value;
+	let eventEndDate = document.getElementById("eventEndDate").value;
+
+	let defaultEndDate = currentDate.setFullYear(currentDate.getFullYear() + 3);
+	defaultEndDate = date = new Date(defaultEndDate);
+	defaultEndDate = defaultEndDate.toISOString().split("T")[0];
+	if (eventStartDate == 0) {
+		eventStartDate = formattedCurrentDate;
+	}
+	if (eventEndDate == 0) {
+		eventEndDate = defaultEndDate;
+	}
+	// check if end date is earlier than start date
+	const eventStartDateCheck = new Date(eventStartDate);
+	const eventEndDateCheck = new Date(eventEndDate);
+	if (eventStartDateCheck > eventEndDateCheck) {
+		eventEndDate = eventStartDate;
+	}
+	// window.location.href = `Events-results.html?search=${eventSearchInput}&region=${regionDropDown}&priceRange=${ticketPriceDropDown}`;
+	window.location.href = `Events-results.html?search=${eventSearchInput}&startDate=${eventStartDate}&endDate=${eventEndDate}&region=${regionDropDown}&priceRange=${ticketPriceDropDown}`;
 }
 
 if (currentPage.includes("Events-results")) {
-	searchString = window.location.search.split("search=")[1];
-	searchRegion = window.location.search.split("region=")[1];
+	const eventSearchQuery = window.location.search;
+
+	searchString = eventSearchQuery.split("search=")[1];
+	searchRegion = eventSearchQuery.split("region=")[1];
+	// slice search query to get dates
+	const startDateIndex = eventSearchQuery.indexOf("startDate=");
+	const endDateIndex = eventSearchQuery.indexOf("endDate=");
+	searchStartDate = eventSearchQuery.slice(
+		startDateIndex + 10,
+		startDateIndex + 20
+	);
+	searchEndDate = eventSearchQuery.slice(endDateIndex + 8, endDateIndex + 18);
+	console.log(searchStartDate, " ", searchEndDate);
+
 	searchTicketPrices = window.location.search.split("priceRange=")[1];
-	console.log(searchTicketPrices);
 	displayResults(searchString, searchRegion, searchTicketPrices);
 }
 
@@ -775,7 +806,11 @@ async function displayResults(eventId, searchRegion, priceRange) {
 					);
 					localStorage.removeItem("resultsNumber");
 				} else {
-					resultsNumber.innerHTML = `${displayedEventsFirst} to ${displayedEventsLast} of ${totalEvents} results`;
+					if (displayedEventsLast >= totalEvents) {
+						resultsNumber.innerHTML = `${displayedEventsFirst} to ${totalEvents} of ${totalEvents} results`;
+					} else {
+						resultsNumber.innerHTML = `${displayedEventsFirst} to ${displayedEventsLast} of ${totalEvents} results`;
+					}
 					global.resultsNumber = resultsNumber.innerText;
 				}
 
@@ -818,9 +853,7 @@ async function displayResults(eventId, searchRegion, priceRange) {
 
 				initMap();
 			}
-		},
-		error: function (xhr, status, error) {
-			console.error(xhr.responseText);
+			hideSpinner();
 		},
 	});
 }

@@ -10,5 +10,5 @@ make filter for events page (location etc)
 make database to store api key
 format search box area
 add date range search
-add price search
 arrange script page for easier readability
+if no results from events show "no results"
