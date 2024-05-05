@@ -1084,7 +1084,6 @@ svg .MapLink {
 }
 
 .homeEvents .eventDescription {
-	height: 80px;
 	display: -webkit-box;
 	overflow-y: hidden;
 	-webkit-line-clamp: 4;
@@ -1122,10 +1121,6 @@ svg .MapLink {
 	margin: auto;
 }
 
-/* .homeEventImageContainer, .homeEventImageContainer img {
-
-} */
-
 .homeEvents img{
 	object-fit: cover;
 	width: 100%;
@@ -1134,6 +1129,7 @@ svg .MapLink {
 
 .infoBox {
 	padding: 10px;
+	font-size: 14px;
 }
 
 .homeEvents .infoBox button {
@@ -1154,9 +1150,6 @@ svg .MapLink {
 	-webkit-line-clamp: 2;
 	text-overflow: ellipsis;
 }
-
-
-
 #seeMore {
 	margin-left: 40px;
 	margin-top: 50px;
@@ -1179,13 +1172,30 @@ svg .MapLink {
 #eventSearchForm {
 	background-color: black;
 	width: 100%;
-	display: flex;
+	/* display: flex; */
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	/* height: 28px; */	
 	margin-bottom: 20px;
 	padding: 45px 40px;
 	font-size: 14px;
+}
+
+#eventSearchForm div  {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 8px;
+}
+#eventSearchForm div div  {
+	display: flex;
+	flex-direction: column	;
+}
+
+#eventSearchForm input, #eventSearchForm select {
+	padding: 5px 10px;
+	height: 40px
 }
 
 #eventSearchForm label{
@@ -1200,8 +1210,13 @@ svg .MapLink {
 	outline: none;
 }
 
-#eventSearchButton {
+#eventsearchButtonContainer {
 	display: flex;
+	justify-content: end !important; 
+}
+
+/* #eventSearchButton {
+	display: inline-flex;
 	width: 33px;
 	height: 33px;
 	justify-content: center;
@@ -1211,10 +1226,20 @@ svg .MapLink {
 	background-color: black;
 	border-radius: 0 5px 5px 0;
 	border: 1px solid black;
+} */
+
+#eventSearchButton {
+	display: block;
+	color: white;
+	background-color: #4CAF50;
+	padding: 10px 20px;
+	border: none;
+	box-shadow: 0px 2px 8px 3px rgba(9, 59, 28, 0.75) inset;
+	border-radius: 8px 0px 8px;
 }
 
 #eventSearchButton:hover {
-	filter:invert(100);
+	box-shadow: 0px 2px 8px 3px rgba(95, 95, 95, 0.75) inset;
 }
 
 .eventTab {
@@ -2775,3 +2800,16 @@ a.animated-button.slideNorth {
 		height: 570px;
 	}
 }
+@media (max-width: 769px){
+	.infoBox {
+		font-size: 13px;
+	}
+	.eventTitle {
+		font-size: 15px;
+	}
+	#innerHomeEvents {
+		height: 440px;
+	}
+}
+
+

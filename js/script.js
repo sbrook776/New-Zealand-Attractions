@@ -26,6 +26,10 @@ let eventName;
 let eventLat;
 let eventLng;
 
+// username and password for demonstration purposes
+const username = "myportfolio";
+const password = "tjdd9wm89ssf";
+
 const regions = [
 	{
 		name: "All Regions",
@@ -149,16 +153,9 @@ async function getAPIDataLocations() {
 		url: "https://api.eventfinda.co.nz/v2/locations.json?autocomplete=Southland",
 		dataType: "jsonp",
 		type: "GET",
-		beforeSend: function (xhr) {
-			xhr.setRequestHeader(
-				"Authorization",
-				"Basic " + btoa(username + ":" + password)
-			);
-		},
-		success: function (xhr) {},
 	});
 }
-getAPIDataLocations();
+// getAPIDataLocations();
 
 //eventfinda locations
 // https://api.eventfinda.co.nz/v2/locations.xml
@@ -193,6 +190,9 @@ if (
 	const eventSearchForm = document.getElementById("eventSearchForm");
 	eventSearchForm.addEventListener("submit", eventSearchFunction);
 }
+
+let eventSearchStartDate;
+let eventSearchEndDate;
 
 function eventSearchFunction(e) {
 	e.preventDefault();
@@ -237,18 +237,32 @@ if (currentPage.includes("Events-results")) {
 		startDateIndex + 20
 	);
 	searchEndDate = eventSearchQuery.slice(endDateIndex + 8, endDateIndex + 18);
-	console.log(searchStartDate, " ", searchEndDate);
+	eventSearchStartDate = searchStartDate;
+	eventSearchEndDate = searchEndDate;
 
 	searchTicketPrices = window.location.search.split("priceRange=")[1];
-	displayResults(searchString, searchRegion, searchTicketPrices);
+	displayResults(
+		searchString,
+		searchRegion,
+		searchTicketPrices,
+		searchStartDate,
+		searchEndDate
+	);
 }
 
 // Had to use this AJAX call to get events as other methods blocked by CORS policy
-async function displayResults(eventId, searchRegion, priceRange) {
+async function displayResults(
+	eventId,
+	searchRegion,
+	priceRange,
+	startDate,
+	endDate
+) {
 	showSpinner();
 	const username = "myportfolio";
 	const password = "tjdd9wm89ssf";
 	// sets page to last page user was on
+	console.log(startDate, " ", endDate);
 	if (
 		localStorage.getItem("pageOffset") &&
 		localStorage.getItem("eventCurrentPage")
@@ -268,19 +282,19 @@ async function displayResults(eventId, searchRegion, priceRange) {
 	} else if (currentPage === "/Events-results.html") {
 		switch (priceRange) {
 			case "0":
-				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}`;
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&start_date=${startDate}&end_date=${endDate}`;
 				break;
 			case "1":
-				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&free=1`;
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&free=1&start_date=${startDate}&end_date=${endDate}`;
 				break;
 			case "2":
-				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_max=20`;
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_max=20&start_date=${startDate}&end_date=${endDate}`;
 				break;
 			case "3":
-				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=20&price_max=50`;
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=20&price_max=50&start_date=${startDate}&end_date=${endDate}`;
 				break;
 			case "4":
-				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=50`;
+				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=50&start_date=${startDate}&end_date=${endDate}`;
 				break;
 		}
 	}
@@ -288,12 +302,6 @@ async function displayResults(eventId, searchRegion, priceRange) {
 		url: url,
 		dataType: "jsonp",
 		type: "GET",
-		beforeSend: function (xhr) {
-			xhr.setRequestHeader(
-				"Authorization",
-				"Basic " + btoa(username + ":" + password)
-			);
-		},
 		success: function (xhr) {
 			hideSpinner();
 			const { events } = xhr;
@@ -647,6 +655,20 @@ async function displayResults(eventId, searchRegion, priceRange) {
 					}
 				}
 
+				eventSearchStartDate = new Date(eventSearchStartDate);
+				eventSearchStartDate = new Date(
+					eventSearchStartDate.setMinutes(eventSearchStartDate.getMinutes() - 1)
+				);
+				eventSearchStartDate = new Date(
+					eventSearchStartDate.setDate(eventSearchStartDate.getDate() + 1)
+				);
+
+				eventSearchStartDate = new Date(eventSearchStartDate);
+				console.log(eventSearchStartDate);
+				// const eventSearchStartDateEnd = new Date(
+				// 	eventSearchStartDate.setDate(eventSearchStartDate.getDate() + 1)
+				// );
+				console.log(eventSearchStartDate);
 				events.forEach((event) => {
 					const eventUrl = event.web_sites.web_sites;
 					// get event location
@@ -654,18 +676,65 @@ async function displayResults(eventId, searchRegion, priceRange) {
 					// let eventLocationCity = eventLocation.split(",");
 					// eventLocationCity = eventLocationCity[2].trim();
 					const eventSessions = event.sessions.sessions;
+					console.log(eventSessions);
 					const eventImage = event.images.images[0].original_url;
 					// return event sessions that are current
-					const currentSessions = eventSessions.filter(
-						(session) => new Date(session.datetime_start) >= currentDate
-					);
+					let currentSessions;
 					let eventStartTime;
-					// if no current session times display original session time
-					if (currentSessions.length === 0) {
-						eventStartTime = new Date(event.datetime_start);
-					} else {
-						eventStartTime = new Date(currentSessions[0].datetime_start);
+					if (currentPage === "/Events-results.html") {
+						currentSessions = eventSessions.filter(
+							(session) =>
+								new Date(session.datetime_start) < eventSearchStartDate
+						);
+						console.log(eventSearchStartDate);
+						console.log(currentSessions);
+						// Get latest session that is before chosen start date
+						const latestCurrentSession =
+							currentSessions[currentSessions.length - 1].datetime_start;
+						console.log(latestCurrentSession);
+						eventStartTime = new Date(latestCurrentSession);
+						// 	function findDate(sessionArray, searchDate, searchDateEnd) {
+						// 		let closestDate = null;
+						// 		for (const date of sessionArray) {
+						// 			console.log(date.datetime_start);
+						// 			if (
+						// 				new Date(date.datetime_start) < searchDate &&
+						// 				(!closestDate || new Date(date.datetime_start) > closestDate)
+						// 			) {
+						// 				closestDate = new Date(date.datetime_start);
+						// 			}
+						// 		}
+						// 		return closestDate;
+						// 	}
+						// 	const sessionDate = findDate(
+						// 		eventSessions,
+						// 		eventSearchStartDate,
+						// 		eventSearchStartDateEnd
+						// 	);
+						// 	console.log(sessionDate);
+						// }
+						// if (eventSearchStartDate != currentDate) {
+						// 	currentSessions = eventSessions.filter(
+						// 		(session) =>
+						// 			new Date(session.datetime_start) >= eventSearchStartDate &&
+						// 			new Date(session.datetime_start) <= eventSearchStartDateEnd
+						// 	);
 					}
+
+					// Calculations for event page only
+					if (currentPage === "/Events.html") {
+						currentSessions = eventSessions.filter(
+							(session) => new Date(session.datetime_start) >= currentDate
+						);
+
+						// if no current session times display original session time
+						if (currentSessions.length === 0) {
+							eventStartTime = new Date(event.datetime_start);
+						} else {
+							eventStartTime = new Date(currentSessions[0].datetime_start);
+						}
+					}
+
 					// get time in hours/ minutes of current event date.
 					let eventStartHours = eventStartTime.getHours();
 					let eventStartMinutes = eventStartTime.getMinutes();

@@ -12,3 +12,6 @@ format search box area
 add date range search
 arrange script page for easier readability
 if no results from events show "no results"
+if searching date display the first session that falls between this date.
+contact eventfinder for cors after publishing website
+format events search box like skyscanner website see saved website in bookmarks
