@@ -45,20 +45,35 @@
 		<div class="container eventsContainer">	
 			<div id="searchBoxOuterContainer">	
 				<form id="eventSearchForm">
-					<label for="searchEvents">Search Events</label>
-					<input type="search" id="searchEvents" placeholder="Search">
-					<button id="eventSearchButton"><i class="fa-solid fa-magnifying-glass"></i>
-					</button>
-					<label for="regionDropDown">Regions</label>
-					<select name="regionDropDown" id="regionDropDown">
-					</select>
-					<label for="ticketPriceDropDown">Ticket Prices</label>
-					<select name="ticketPriceDropDown" id="ticketPriceDropDown"></select>
-					<label for="eventStartDate">Start Date:</label>
-					<input type="date" name="eventStartDate" id="eventStartDate"></input>
-					<label for="eventEndDate">End Date:</label>
-					<input type="date" name="eventEndDate" id="eventEndDate"></input>
-				</form>
+					<div>
+						<div>
+						<label for="searchEvents">Search Events</label>
+						<input type="search" id="searchEvents" placeholder="Search">
+
+						</div>
+					  <div>
+						<label for="regionDropDown">Regions</label>
+						<select name="regionDropDown" id="regionDropDown"></select>
+					  </div>
+					  <div>
+						<label for="ticketPriceDropDown">Ticket Prices</label>
+						<select name="ticketPriceDropDown" id="ticketPriceDropDown"></select>
+					  </div>
+					  <div>
+						<label for="eventStartDate">Start Date</label>
+						<input type="date" name="eventStartDate" id="eventStartDate"></input>
+					  </div>
+					  <div>
+						<label for="eventEndDate">End Date</label>
+						<input type="date" name="eventEndDate" id="eventEndDate"></input>
+					  </div>
+					</div>
+					<div id="eventsearchButtonContainer">
+					<button id="eventSearchButton">
+						Search Events &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i>
+					  </button>
+					  </div>
+				  </form>
 			</div>	
 			<div id="resultsDisplay"></div>
 

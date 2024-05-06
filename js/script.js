@@ -236,10 +236,10 @@ if (currentPage.includes("Events-results")) {
 		startDateIndex + 10,
 		startDateIndex + 20
 	);
+	// Set end date to start date if before start date
 	searchEndDate = eventSearchQuery.slice(endDateIndex + 8, endDateIndex + 18);
-	eventSearchStartDate = searchStartDate;
-	eventSearchEndDate = searchEndDate;
-
+	eventSearchStartDate = searchStartDate + " 12:00:00";
+	eventSearchEndDate = searchEndDate + " 23:59:59";
 	searchTicketPrices = window.location.search.split("priceRange=")[1];
 	displayResults(
 		searchString,
@@ -279,19 +279,22 @@ async function displayResults(
 		url = `https://api.eventfinda.co.nz/v2/events.json?id=${eventId}`;
 	} else if (currentPage === "/home.html") {
 		url = `https://api.eventfinda.co.nz/v2/events.json?rows=${homeEventResults}`;
-	} else if (currentPage === "/Events-results.html") {
+	} else if (currentPage.includes("/Events-results.html")) {
 		switch (priceRange) {
 			case "0":
 				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&start_date=${startDate}&end_date=${endDate}`;
 				break;
 			case "1":
 				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&free=1&start_date=${startDate}&end_date=${endDate}`;
+
 				break;
 			case "2":
 				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_max=20&start_date=${startDate}&end_date=${endDate}`;
+
 				break;
 			case "3":
 				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=20&price_max=50&start_date=${startDate}&end_date=${endDate}`;
+
 				break;
 			case "4":
 				url = `https://api.eventfinda.co.nz/v2/events.json?autocomplete=${eventId}&rows=${eventResults}&offset=${pageOffset}&location=${searchRegion}&price_min=50&start_date=${startDate}&end_date=${endDate}`;
@@ -655,20 +658,28 @@ async function displayResults(
 					}
 				}
 
+				console.log(eventSearchStartDate);
 				eventSearchStartDate = new Date(eventSearchStartDate);
+				const eventDateUnchanged = eventSearchStartDate;
+				console.log(eventDateUnchanged);
+				// eventSearchStartDate = new Date(
+				// 	eventSearchStartDate.setMinutes(eventSearchStartDate.getMinutes() - 1)
+				// );
+				console.log(eventSearchStartDate);
 				eventSearchStartDate = new Date(
-					eventSearchStartDate.setMinutes(eventSearchStartDate.getMinutes() - 1)
+					eventSearchStartDate.setSeconds(eventSearchStartDate.getSeconds() - 1)
 				);
 				eventSearchStartDate = new Date(
-					eventSearchStartDate.setDate(eventSearchStartDate.getDate() + 1)
+					eventSearchStartDate.setDate(eventSearchStartDate.getDate() - 1)
 				);
 
 				eventSearchStartDate = new Date(eventSearchStartDate);
 				console.log(eventSearchStartDate);
+				eventSearchEndDate = new Date(eventSearchEndDate);
+				console.log(eventSearchEndDate);
 				// const eventSearchStartDateEnd = new Date(
 				// 	eventSearchStartDate.setDate(eventSearchStartDate.getDate() + 1)
 				// );
-				console.log(eventSearchStartDate);
 				events.forEach((event) => {
 					const eventUrl = event.web_sites.web_sites;
 					// get event location
@@ -681,44 +692,41 @@ async function displayResults(
 					// return event sessions that are current
 					let currentSessions;
 					let eventStartTime;
+					let latestCurrentSession;
+					let noSessions = false;
 					if (currentPage === "/Events-results.html") {
 						currentSessions = eventSessions.filter(
 							(session) =>
-								new Date(session.datetime_start) < eventSearchStartDate
+								new Date(session.datetime_start) > eventSearchStartDate &&
+								new Date(session.datetime_start) < eventSearchEndDate
 						);
 						console.log(eventSearchStartDate);
 						console.log(currentSessions);
-						// Get latest session that is before chosen start date
-						const latestCurrentSession =
-							currentSessions[currentSessions.length - 1].datetime_start;
-						console.log(latestCurrentSession);
-						eventStartTime = new Date(latestCurrentSession);
-						// 	function findDate(sessionArray, searchDate, searchDateEnd) {
-						// 		let closestDate = null;
-						// 		for (const date of sessionArray) {
-						// 			console.log(date.datetime_start);
-						// 			if (
-						// 				new Date(date.datetime_start) < searchDate &&
-						// 				(!closestDate || new Date(date.datetime_start) > closestDate)
-						// 			) {
-						// 				closestDate = new Date(date.datetime_start);
-						// 			}
-						// 		}
-						// 		return closestDate;
-						// 	}
-						// 	const sessionDate = findDate(
-						// 		eventSessions,
-						// 		eventSearchStartDate,
-						// 		eventSearchStartDateEnd
-						// 	);
-						// 	console.log(sessionDate);
-						// }
-						// if (eventSearchStartDate != currentDate) {
-						// 	currentSessions = eventSessions.filter(
-						// 		(session) =>
-						// 			new Date(session.datetime_start) >= eventSearchStartDate &&
-						// 			new Date(session.datetime_start) <= eventSearchStartDateEnd
-						// 	);
+						if (currentSessions.length === 0) {
+							console.log("no sessions");
+							noSessions = true;
+							currentSessions = eventSessions.filter(
+								(session) =>
+									new Date(session.datetime_start) < eventSearchEndDate
+							);
+							latestCurrentSession =
+								currentSessions[currentSessions.length - 1].datetime_summary;
+							console.log(latestCurrentSession);
+						} else {
+							latestCurrentSession = currentSessions[0].datetime_start;
+							eventStartTime = new Date(latestCurrentSession);
+							if (eventStartTime < eventDateUnchanged) {
+								console.log(eventDateUnchanged);
+								latestCurrentSession = currentSessions[0].datetime_summary;
+								noSessions = true;
+							} else {
+								latestCurrentSession = currentSessions[0].datetime_start;
+								eventStartTime = new Date(latestCurrentSession);
+								console.log(eventStartTime);
+							}
+							console.log(eventStartTime);
+							console.log(eventSearchStartDate);
+						}
 					}
 
 					// Calculations for event page only
@@ -734,22 +742,33 @@ async function displayResults(
 							eventStartTime = new Date(currentSessions[0].datetime_start);
 						}
 					}
-
-					// get time in hours/ minutes of current event date.
-					let eventStartHours = eventStartTime.getHours();
-					let eventStartMinutes = eventStartTime.getMinutes();
-					eventStartMinutes =
-						eventStartMinutes === 0 ? "" : `:${eventStartMinutes}`;
-					let amPm = eventStartHours >= 12 ? "pm" : "am";
-					eventStartHours = eventStartHours % 12;
-					eventStartHours = eventStartHours ? eventStartHours : 12;
 					let eventDate;
-					// convert to string/NZ date format
-					eventDate = eventStartTime.toLocaleDateString("en-GB");
-					// Display "Today" if today's date matches with event's date
-					if (currentDateString === eventDate) {
-						eventDate = "Today";
+					let eventStartHours;
+					let eventStartMinutes;
+					let amPm;
+					let eventTimeDisplay;
+
+					if (!noSessions) {
+						// get time in hours/ minutes of current event date.
+						eventStartHours = eventStartTime.getHours();
+						eventStartMinutes = eventStartTime.getMinutes();
+						eventStartMinutes =
+							eventStartMinutes === 0 ? "" : `:${eventStartMinutes}`;
+						amPm = eventStartHours >= 12 ? "pm" : "am";
+						eventStartHours = eventStartHours % 12;
+						eventStartHours = eventStartHours ? eventStartHours : 12;
+						eventDate;
+						// convert to string/NZ date format
+						eventDate = eventStartTime.toLocaleDateString("en-GB");
+						// Display "Today" if today's date matches with event's date
+						if (currentDateString === eventDate) {
+							eventDate = "Today";
+						}
+						eventTimeDisplay = `${eventDate} ${eventStartHours}${eventStartMinutes}${amPm}`;
+					} else {
+						eventTimeDisplay = latestCurrentSession;
 					}
+
 					const eventsContainer = document.createElement("div");
 					eventsContainer.classList.add("eventPagePanel");
 					eventsContainer.innerHTML = `					
@@ -765,7 +784,7 @@ async function displayResults(
 			<div class="eventPanel">
 				<h4 class="eventTitle">${event.name}</h4>
 				<div class="eventDate">
-					<strong>When:</strong> ${eventDate} ${eventStartHours}${eventStartMinutes}${amPm}
+					<strong>When:</strong> ${eventTimeDisplay}
 				</div>
 				<div class="eventLocation">
 					<strong>Location:</strong> ${eventLocation}
@@ -824,7 +843,13 @@ async function displayResults(
 							localStorage.removeItem("resultsNumber");
 							window.scrollTo(0, 0);
 							if (currentPage === "/Events-results.html") {
-								displayResults(searchString);
+								displayResults(
+									searchString,
+									searchRegion,
+									searchTicketPrices,
+									searchStartDate,
+									searchEndDate
+								);
 							} else {
 								displayResults();
 							}
@@ -849,7 +874,13 @@ async function displayResults(
 							localStorage.removeItem("resultsNumber");
 							window.scrollTo(0, 0);
 							if (currentPage === "/Events-results.html") {
-								displayResults(searchString);
+								displayResults(
+									searchString,
+									searchRegion,
+									searchTicketPrices,
+									searchStartDate,
+									searchEndDate
+								);
 							} else {
 								displayResults();
 							}
@@ -923,6 +954,11 @@ async function displayResults(
 				initMap();
 			}
 			hideSpinner();
+		},
+		error: function (xhr, status, error) {
+			// Error handler: called when the request fails (HTTP status code other than 2xx)
+			console.error("Request failed:", status, error);
+			// Optionally, handle different types of errors (e.g., network error, server error)
 		},
 	});
 }
