@@ -308,6 +308,7 @@ async function displayResults(
 		success: function (xhr) {
 			hideSpinner();
 			const { events } = xhr;
+			const eventNumber = events.length;
 			eventResults = global.eventResults;
 			homeEventResults = global.homeEventResults;
 			if (currentPage.includes("event-details")) {
@@ -649,7 +650,6 @@ async function displayResults(
 				let eventCurrentPage = global.eventsCurrentPage;
 				let { events } = xhr;
 				if (events.length != eventResults) {
-					console.log("does not equal");
 					eventResults++;
 					if (currentPage === "/Events-results.html") {
 						displayResults(searchString);
@@ -802,17 +802,23 @@ async function displayResults(
 				});
 
 				const eventsContainerInner = document.getElementById("pagination");
-
-				displayPagination();
+				if (eventNumber == 0) {
+					eventsContainerInner.innerHTML =
+						"<div id='noResultsContainer'>Sorry, no results were found for your search</div>";
+				} else {
+					displayPagination();
+				}
 
 				function displayPagination() {
 					const innerPagination = document.createElement("div");
 					innerPagination.classList.add("pagination");
+
 					innerPagination.innerHTML = `
-					<button id="prev">&#8249; Prev</button>
-					<button id="next">Next &#8250;</button>
-					<div class="page-counter">Page ${eventCurrentPage} of ${eventTotalPages}</div>
-					`;
+						<button id="prev">&#8249; Prev</button>
+						<button id="next">Next &#8250;</button>
+						<div class="page-counter">Page ${eventCurrentPage} of ${eventTotalPages}</div>
+						`;
+
 					document.querySelector("#pagination").appendChild(innerPagination);
 					// Disable prev button if on first page
 					if (eventCurrentPage == 1) {
@@ -839,7 +845,6 @@ async function displayResults(
 								"eventCurrentPage",
 								JSON.stringify(eventCurrentPage)
 							);
-							console.log(resultsNumber);
 							localStorage.removeItem("resultsNumber");
 							window.scrollTo(0, 0);
 							if (currentPage === "/Events-results.html") {
@@ -870,7 +875,6 @@ async function displayResults(
 								"eventCurrentPage",
 								JSON.stringify(eventCurrentPage)
 							);
-							console.log(resultsNumber);
 							localStorage.removeItem("resultsNumber");
 							window.scrollTo(0, 0);
 							if (currentPage === "/Events-results.html") {
@@ -900,13 +904,17 @@ async function displayResults(
 					displayedEventsFirst = pageOffset + (eventCurrentPage - 1);
 					displayedEventsLast = displayedEventsFirst + eventResults;
 				}
+				console.log(resultsNumber);
+
 				if (localStorage.getItem("resultsNumber")) {
 					resultsNumber.innerHTML = JSON.parse(
 						localStorage.getItem("resultsNumber")
 					);
 					localStorage.removeItem("resultsNumber");
 				} else {
-					if (displayedEventsLast >= totalEvents) {
+					if (totalEvents == 0) {
+						resultsNumber.innerHTML = "0 results";
+					} else if (displayedEventsLast >= totalEvents) {
 						resultsNumber.innerHTML = `${displayedEventsFirst} to ${totalEvents} of ${totalEvents} results`;
 					} else {
 						resultsNumber.innerHTML = `${displayedEventsFirst} to ${displayedEventsLast} of ${totalEvents} results`;
@@ -1014,8 +1022,10 @@ navContainer.innerHTML = `
 <!-- navbar top start -->
 <div class="navbar topNavbar navbar-inverse">
 	<a id="logoLink" href="home.html">
+		<div>
 		<img alt="New Zealand logo" class="logo" src="Images/nzIcon.gif" />
-		<span class="logoText">New Zealand Attractions</span></a>
+		<span class="logoText">New Zealand Attractions</span>
+		</div></a>
 	<button
 		class="navbar-toggle"
 		data-target=".myHeader"
