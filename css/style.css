@@ -277,6 +277,10 @@ font-size: 15px;
 .carousel {
 	overflow-y: hidden;
 }
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img { 
+max-width: 140%;
+}
 .myControl {
 	font-size: 3vw;
 }
@@ -844,7 +848,7 @@ svg .MapLink {
 /* slide buttons */
 /* south button */
 .animated-button.slideSouth {
-	color: white;
+	color: black !important;
 	cursor: pointer;
 	display: block;
 	position: absolute;
@@ -878,7 +882,7 @@ svg .MapLink {
 	background: black;
 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
-.animated-button:link, .animated-button:visited {
+/* .animated-button:link, .animated-button:visited {
 	position: absolute;
 	display: block;
 	margin: 30px auto 0;
@@ -896,8 +900,8 @@ svg .MapLink {
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
 	transition: all 1s ease;
-}
-.animated-button:link, .animated-button.slideSouth:visited {
+} */
+/* .animated-button:link, .animated-button.slideSouth:visited {
 	position: absolute;
 	display: block;
 	margin: 30px auto 0;
@@ -916,7 +920,7 @@ svg .MapLink {
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
 	transition: all 1s ease;
-}
+} */
 /* north button */
 .animated-button.slideNorth {
 	color: white;
@@ -925,7 +929,7 @@ svg .MapLink {
 	margin: 0;
 	position: absolute;
 	bottom: 3vw;
-	right: 6.3vw;
+	right: 6vw;
 	border: 0.2vw solid white;
 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 	font-family: Arial;
@@ -1129,8 +1133,11 @@ svg .MapLink {
 }
 
 .homeEvents img{
+	object-position: top;
 	object-fit: cover;
 	width: 100%;
+	height: auto;
+
 }
 
 .infoBox {
@@ -2373,7 +2380,7 @@ margin-bottom: 20px;
 	margin-top: -20px;
 	margin-bottom: 40px;
 }
-}
+
 /* Extra small devices (phones, 768px and down) */
 @media only screen and (max-width: 768px) {
 .myControl {
@@ -2447,7 +2454,7 @@ textarea {
 	height: 50vw !important;
 }
 }
-@media (max-width: 560px) {
+@media (max-width: 426px) {
 .homeEvents {
 	margin-bottom: 8vw !important;
 }
@@ -2560,20 +2567,7 @@ textarea {
 	top: -1.5vw;
 	width: 12vw;
 }
-a.animated-button.slideSouth {
-	color: white;
-	cursor: pointer;
-	display: block;
-	position: absolute;
-	width: 27vw;
-	bottom: 10vw;
-	right: -45vw;
-	padding: 1.5vw !important;
-	border: 0.5vw solid black;
-	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-	font-family: Arial;
-	font-size: 1.3vw !important;
-}
+
 /* north island banner stuff*/
 .experienceNorthTitle {
 	font-size: 3.5vw;
@@ -2683,20 +2677,7 @@ a.animated-button.slideSouth {
 	right: -2vw;
 	width: 17vw;
 }
-a.animated-button.slideNorth {
-	color: white;
-	cursor: pointer;
-	display: block;
-	position: absolute;
-	width: 27vw;
-	bottom: 10vw;
-	left: -45vw;
-	padding: 1.5vw !important;
-	border: 0.5vw solid white;
-	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-	font-family: Arial;
-	font-size: 1.3vw !important;
-}
+
 /*history home page */
 .historyhomeContainer {
 	position: relative;
@@ -2914,6 +2895,18 @@ a.animated-button.slideNorth {
 	.homeBannerContainer div p {
 		opacity: 1 !important;
 	}
+	#waitangiText {
+		opacity: 1;
+		font-size: 11px;
+		width: 200%;
+		left: -8px;
+	}
+	#historyText {
+		opacity: 1;
+		font-size: 11px;
+		width: 200%;
+		left: -15px;
+	}
 }
 /* Mobile M */
 @media (max-width: 426px){
@@ -2945,9 +2938,135 @@ a.animated-button.slideNorth {
 	.nav {
 		margin-bottom: 10px;
 	}
+	.carousel-inner .item > img {
+		width: 140%;
+	}
+	.homeBannerContainer {
+		/* width: 150%; */
+		height: 65vh;
+		overflow: hidden;
+		width: 100%;
+	}
+	.nzBannerN {
+		position: absolute;
+		width: 190%;
+		transform: translate(-33%, 0);
+	}
+	.nzBannerS {
+		position: absolute;
+		width: 190%;
+		transform: translate(-30%, 0);
+	}
+	.experienceNorthTitle, .experienceSouthTitle {
+		font-size: 15px;
+	}
+	.slideSouth {
+		color: white !important;		
+	}
+	a.animated-button.slideSouth {
+		color: white !important;
+		cursor: pointer;
+		display: block;
+		position: absolute;
+		width: 35vw;
+		bottom: 10vw;
+		padding: 1.5vw !important;
+		border: 0.5vw solid white !important;
+		right: -48vw !important;
+		transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+		font-family: Arial;
+		font-size: 2vw !important;
+	}
+	a.animated-button.slideNorth {
+		color: white;
+		cursor: pointer;
+		display: block;
+		position: absolute;
+		width: 35vw;
+		bottom: 10vw;
+		padding: 1.5vw !important;
+		border: 0.5vw solid white;
+		transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+		font-family: Arial;
+		font-size: 2vw !important;
+	}
+	.homeAttractionBox {
+		top: 20px!important;
+	}
+	#skyTowerText {
+		top: 27px !important;
+		left: -65px !important;
+		font-size: 10px;
+		width: auto;
+	}
+	#hobbitonText {
+		top: 32px !important;
+		left: -65px !important;
+		font-size: 10px;
+		width: auto;
+	}
+	#waitomoText {
+		top: 28px !important;
+		left: -65px !important;
+		font-size: 10px;
+		width: auto;
+	}
+	#moerakiText {
+		top: 28px !important;
+		font-size: 10px;		
+	}
+	#fiordText {
+		top: 22px !important;
+		font-size: 10px;
+	}
+	#MtCookText {
+		top: 28px !important;
+		font-size: 10px;
+	}
+	.circleImg {
+		width:auto !important;
+		height: 100% !important;
+		top: 0 !important;
+	}
+	.homeAttractionBox{
+		width: 45px !important;
+		height: 45px !important;
+	}
+
+	.mainHeading, .subHeading, .historyhomeContainer {
+		width: 100%;
+	}
+	.mainHeading {
+		font-size: 17px;
+		padding: 5px 10px; 
+		line-height: 1.4;
+	}
+	.subHeading {
+		font-size: 13px;
+		padding: 10px; 
+
+	}
+	#waitangiText {
+		font-size: 10px;
+		width: 200%;
+		top: 68px;
+		left: -26px;
+	}
+	#historyText {
+		font-size: 10px;
+		width: 200%;
+		top: 68px;
+		left: -38px;
+	}
+	.historyContainer, .waitangiContainer {
+		top: 360px;
+	}
+	.historyMore {
+		top: 340px;
+	}
 }
 /* Mobile S */
-@media (max-width: 375px){
+@media (max-width: 376px){
 	#noResultsContainer {
 		font-size: 12px;
 	}
@@ -2965,6 +3084,65 @@ a.animated-button.slideNorth {
 	}
 	#innerHomeEvents {
 		height: 400px;
+	}
+	#moerakiText, #fiordText, #MtCookText {
+		left: 50px!important;
+	}
+
+	.historyContainer, .waitangiContainer {
+		top: 320px;
+	}
+	.historyMore {
+		top: 300px;
+	}
+	#waitangiText {
+		font-size: 9px;
+		top: 68px;
+		left: -22px;
+	}
+	#historyText {
+		font-size: 9px;
+		top: 68px;
+		left: -34px;
+	}
+}
+@media (max-width: 321px){
+	.fiordContainer {
+		top: 55px;
+	}
+	.MtCookContainer {
+		top: 105px;
+	}
+	.hobbitonContainer {
+		top: 55px;
+	}
+	.waitomoContainer {
+		top: 105px;
+	}
+	.historyContainer, .waitangiContainer {
+		top: 240px;
+	}
+	.historyMore {
+		top: 220px;
+	}
+	#waitangiText {
+		font-size: 9px;
+		top: 68px;
+		left: -20px;
+		width: 300%;
+	}
+	#historyText {
+		font-size: 9px;
+		top: 68px;
+		left: -45px;
+		width: 300%;
+	}
+	.nzTimeline{
+		width: 70%;
+		left: 47px;
+	}
+	#skyTowerText {
+		left: -67px!important;
 	}
 }
 
