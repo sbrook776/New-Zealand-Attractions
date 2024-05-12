@@ -2825,8 +2825,24 @@ textarea {
 	} 
 }
 @media (min-width: 2560px){
+	.attractionRow {
+		font-size: 20px;
+	}
+	.attractionRow p, .regionInfo p {
+		line-height: 40px;
+
+	}
 	#attractionInfo .bannerTitle {
-		font-size: 84px;
+		font-size: 100px;
+	}
+	.regionUnderline{
+		top: 80%;
+	}
+	.regionInfo h3 {
+		font-size: 50px;
+	}
+	#attractionInfo h4 {
+		font-size: 35px;
 	}
 	#helpBox img {
 		top: 85px;
@@ -3024,9 +3040,9 @@ textarea {
 	.BannerBox {		
 		height: 65vw;
 	}
-	.BannerBox .regionBanner{
+	/* .BannerBox .regionBanner{
 		width: auto;
-	}
+	} */
 	#attractionInfo .bannerTitle {
 		top: 31%;
 		font-size: 40px;
@@ -3355,9 +3371,9 @@ width: 30% !important;
 	.BannerBox {		
 		height: 65vw;
 	}
-	.BannerBox .regionBanner{
+	/* .BannerBox .regionBanner{
 		width: auto;
-	}
+	} */
 	#attractionInfo .bannerTitle {
 		top: 31%;
 		font-size: 30px;
