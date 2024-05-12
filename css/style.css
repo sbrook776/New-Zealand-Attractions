@@ -262,11 +262,12 @@ font-size: 15px;
 	width: 100%;
 	height: 45vw;
 }
+
 .headingBox .container {
 	position: absolute;
 	padding: 0px;
 	width: 100%;
-	height: 45vw;
+	height: 100%;
 }
 .headingBox .headingBanner {
 	width: 100%;
@@ -2769,18 +2770,96 @@ textarea {
 	.eventPagePanel .boxImage {
 		height: 160px;
 	}
+	.headingUnderline {
+		top: 60%;
+	}	
 }
 @media (min-width: 1024px){
 	.eventPagePanel .boxImage {
 		height: 240px;
 	}
+	#helpBox img {
+		left: 75%;
+		top: 45%;
+	}
+	.MapSelectList a {
+		font-size: 18px;
+	}
 }
 @media (min-width: 1440px){
+	#switchMap {
+		top: 11px;
+	}
+	#helpBox {
+		width: 230px
+	}
+	#attractionInfo .bannerTitle {
+		font-size: 54px;
+	}
+	.regionInfo {
+		font-size: 18px;
+	}
+	.attractionRow {
+		font-size: 18px;
+	}
+	.attractionRow h4 {
+		font-size: 22px;
+	}
 	.eventPagePanel .boxImage {
 		height: 300px;
 	}
+	.headingUnderline {
+		top: 70%;
+	}
+	.NorthIslandMap {
+		height: 2300px !important;
+		width: auto; 
+		left: 0px;
+		top: 50px;
+	} 
+	.SouthIslandMap {
+		height: 2300px !important;
+		width: auto; 
+		left: 0px;
+		top: 50px;
+	} 
 }
 @media (min-width: 2560px){
+	#attractionInfo .bannerTitle {
+		font-size: 84px;
+	}
+	#helpBox img {
+		top: 85px;
+		width: auto;
+		height: 50px;
+	}
+	#helpBox {
+		font-size: 30px;
+		width: 520px;
+		height: 170px;
+		line-height: 60px;
+		padding: 20px 40px;
+	}
+	#switchMap {
+		font-size: 30px;
+		padding: 10px 20px;
+		top: 30px;
+	}
+	.MapSelectList a {
+		font-size: 30px;
+	}
+	.NorthIslandMap {
+		height: 4000px !important;
+		width: auto; 
+		left: 0px;
+		top: 50px;
+	} 
+	.SouthIslandMap {
+		height: 4000px !important;
+		width: auto; 
+		left: 0px;
+		top: 50px;
+	} 
 	.eventPagePanel .boxImage {
 		height: 570px;
 	}
@@ -2801,6 +2880,24 @@ textarea {
 	}
 	.eventTitle {
 		font-size: 28px;
+	}
+	footer p {
+		font-size: 20px;
+	}
+	footer h4 {
+		font-size: 30px;
+	}
+	.logoFooter {
+		top: 30px;
+	}
+	.logoText {
+		font-size: 50px;
+	}
+	.headingUnderline {
+		top: 80%;
+	}
+	.container .MapSelectList {
+		top: 60px;
 	}
 }
 
@@ -2907,9 +3004,39 @@ textarea {
 		width: 200%;
 		left: -15px;
 	}
+
+	#helpBox img {
+		left: 75%;
+		top: 45%;
+	}
 }
 /* Mobile M */
 @media (max-width: 426px){
+	.regionInfo {
+		width: 95%;
+	}
+	.attractionRow {
+		width: 100%;
+	}
+	.attractionBox .container {
+		width: 100%;
+	}
+	.BannerBox {		
+		height: 65vw;
+	}
+	.BannerBox .regionBanner{
+		width: auto;
+	}
+	#attractionInfo .bannerTitle {
+		top: 31%;
+		font-size: 40px;
+	}
+	#helpBox {
+		width: 160px;
+	}
+	.headingBox {
+		height: 65vw;
+	}
 	.navbar-toggle{
 		margin-right: 0;
 	}
@@ -3064,9 +3191,55 @@ textarea {
 	.historyMore {
 		top: 340px;
 	}
+	.bannerTitleHeading {
+		top: 35%;
+	}
+	.headingUnderline {
+		top: 20%;
+	}
+	.svgContainer {
+		height: 90vh
+	}
+	.container .MapSelectList {
+		top: 10px;
+	}
+	.NorthIslandMap {
+		width: 700px;
+		left: -60px;
+		top: 50px;
+	} 
+	.SouthIslandMap {
+		width: 700px;
+		left: 0px;
+		left: -100px;
+		top: 20px;
+	} 
+	#helpBox {
+		font-size: 11px;
+	} 
+	.MapSelectList a {
+		font-size: 15px;
+	}
+	.MapSelectList {
+width: 30% !important;
+	}
 }
 /* Mobile S */
 @media (max-width: 376px){
+	.NorthIslandMap {
+		width: 700px;
+		left: -100px;
+		top: 70px;
+	} 
+	.SouthIslandMap {
+		width: 700px;
+		left: 0px;
+		left: -150px;
+		top: 50px;
+	} 
+	.MapSelectList a {
+		font-size: 14px;
+	}
 	#noResultsContainer {
 		font-size: 12px;
 	}
@@ -3105,8 +3278,37 @@ textarea {
 		top: 68px;
 		left: -34px;
 	}
+	#helpBox {
+		top: -10px;
+	}
+	#switchMap {
+		top: -40px;
+		left: 200px; 	
+	}
 }
 @media (max-width: 321px){
+	.NorthIslandMap {
+		width: 700px;
+		left: -160px;
+		top: 50px;
+	} 
+	.SouthIslandMap {
+		width: 700px;
+		left: 0px;
+		left: -200px;
+		top: 50px;
+	} 
+	#helpBox {
+		top: -10px;
+		left: -10px;
+	}
+	#switchMap{
+		left: 160px;
+		top: -38px;
+	}
+	.MapSelectList a {
+		font-size: 13px;
+	}
 	.fiordContainer {
 		top: 55px;
 	}
@@ -3144,6 +3346,21 @@ textarea {
 	#skyTowerText {
 		left: -67px!important;
 	}
+	.headingUnderline {
+		top: 10%;
+	}
+	.MapSelectList {
+		width: 35% !important;
+	}
+	.BannerBox {		
+		height: 65vw;
+	}
+	.BannerBox .regionBanner{
+		width: auto;
+	}
+	#attractionInfo .bannerTitle {
+		top: 31%;
+		font-size: 30px;
+	}
 }
-
 
