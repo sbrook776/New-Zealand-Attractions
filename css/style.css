@@ -5,6 +5,7 @@
 body {
 	background-image: url('../Images/fernbackground2.jpg');
 	font-family: Sora;
+	min-height: 100vh;
 }
 .container-fluid {
 	overflow-x: hidden;
@@ -2452,8 +2453,6 @@ textarea {
 
 }
 @media (max-width: 426px) {
-
-
 .lightImgthumb {
 	height: 120px;
 }
@@ -2772,6 +2771,9 @@ textarea {
 /* put largest lower */
 
 @media (min-width: 768px){
+	#contactContainerInner h3 {
+		font-size: 35px;
+	}
 	.eventPagePanel .boxImage {
 		height: 160px;
 	}
@@ -3049,6 +3051,22 @@ textarea {
 }
 /* Mobile M */
 @media (max-width: 426px){
+	.contactContainerColumn {
+		margin-bottom: 20px;
+	}
+	#contactContainerBox {
+		flex-direction: column;
+	}
+	#contactContainerInner {
+		max-width: 100vw;
+	}
+	#contactContainerInner h3 {
+		font-size: 35px;
+	}
+	#contactContainerInner {
+		padding: 40px 50px;
+	}
+
 	.close {
 		z-index: 10000;
 		right: 10px;
@@ -3283,9 +3301,15 @@ textarea {
 	.MapSelectList {
 width: 30% !important;
 	}
+	.historyHeadingBox {
+		height: 50vw;
+	}
 }
 /* Mobile S */
 @media (max-width: 376px){
+	#contactContainerInner h3 {
+		font-size: 30px;
+	}
 	.Imgrow .lightImg {
 		height: 180px;
 	}  
@@ -3356,6 +3380,9 @@ width: 30% !important;
 	}
 }
 @media (max-width: 321px){
+	#contactContainerInner {
+		padding: 20px 30px;
+	}
 	.Imgrow .lightImg {
 		height: 160px;
 	}  
