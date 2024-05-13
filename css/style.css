@@ -2068,11 +2068,9 @@ footer i {
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
-.lightImgthumb {
-	height: 9vw !important;
-}
+
 #videoContainer div iframe {
-	height: 50vw !important;
+	/* height: 50vw !important; */
 	width: 100% !important;
 }
 #videoContainer {
@@ -2103,7 +2101,7 @@ footer i {
 }
 /* this is the clickable image on gallery page */
 .lightImg {
-	height: 14vw !important;
+	height: 14vw;
 }
 .columnLight, .columnLightB {
 	margin-bottom: 2vw;
@@ -2148,7 +2146,7 @@ footer i {
 	display: none;
 }
 .mySlidesImg {
-	height: 48.5vw !important;
+	height: 48.5vw;
 	width: 100% !important;
 }
 .cursor {
@@ -2394,9 +2392,9 @@ margin-bottom: 20px;
 textarea {
 	width: 68vw;
 }
-.lightImg {
+/* .lightImg {
 	height: 25vw !important;
-}
+} */
 /* home history */
 .nav-link {
 	font-size: 2.2vw;
@@ -2451,11 +2449,18 @@ textarea {
 	margin-bottom: 14vw !important;
 }
 
-.lightImg {
-	height: 50vw !important;
-}
+
 }
 @media (max-width: 426px) {
+
+
+.lightImgthumb {
+	height: 120px;
+}
+#videoContainer div iframe {
+	height: 50vw !important;
+	width: 100% !important;
+}
 .homeEvents {
 	margin-bottom: 8vw !important;
 }
@@ -2775,6 +2780,9 @@ textarea {
 	}	
 }
 @media (min-width: 1024px){
+	.close {
+		font-size: 50px;
+	}
 	.eventPagePanel .boxImage {
 		height: 240px;
 	}
@@ -2825,6 +2833,9 @@ textarea {
 	} 
 }
 @media (min-width: 2560px){
+	.close {
+		font-size: 90px;
+	}
 	.attractionRow {
 		font-size: 20px;
 	}
@@ -2970,6 +2981,16 @@ textarea {
 }
 /* Mobile L */
 @media (max-width: 769px){
+	#videoContainer div iframe {
+		height: 180px;
+		width: 100% !important;
+	}
+	#videoContainer div {
+		height: 300px;
+	}
+	#videoContainer div p {
+		font-size: 14px;
+	}
 	.infoBox {
 		font-size: 13px;
 	}
@@ -3028,6 +3049,29 @@ textarea {
 }
 /* Mobile M */
 @media (max-width: 426px){
+	.close {
+		z-index: 10000;
+		right: 10px;
+		opacity: 0.8;
+	}
+	.columnLight  {
+		width: 50%;
+	}
+	.Imgrow .columnLight  {
+		width: 100%;
+	}
+	.Imgrow .lightImg {
+		height: 200px;
+	}  
+	 .lightImg {
+		height: 100px;
+	}
+	.mContent {
+		width: 100%;
+	}
+	.mySlidesImg {
+		height: 60vw;
+	}
 	.regionInfo {
 		width: 95%;
 	}
@@ -3242,6 +3286,15 @@ width: 30% !important;
 }
 /* Mobile S */
 @media (max-width: 376px){
+	.Imgrow .lightImg {
+		height: 180px;
+	}  
+	.lightImgthumb {
+		height: 110px;
+	}
+	#videoContainer div {
+		height: 250px;
+	}
 	.NorthIslandMap {
 		width: 700px;
 		left: -100px;
@@ -3303,6 +3356,18 @@ width: 30% !important;
 	}
 }
 @media (max-width: 321px){
+	.Imgrow .lightImg {
+		height: 160px;
+	}  
+	.lightImg {
+		height: 80px;
+	}
+	.lightImgthumb {
+		height: 90px;
+	}
+	#videoContainer div {
+		height: 230px;
+	}
 	.NorthIslandMap {
 		width: 700px;
 		left: -160px;
