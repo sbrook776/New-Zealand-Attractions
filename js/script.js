@@ -25,6 +25,8 @@ let homeEventResults = global.homeEventResults;
 let eventName;
 let eventLat;
 let eventLng;
+var screenWidth = window.screen.width;
+// console.log("Screen width:", screenWidth, "pixels");
 
 // username and password for demonstration purposes
 const username = "myportfolio";
@@ -262,7 +264,6 @@ async function displayResults(
 	const username = "myportfolio";
 	const password = "tjdd9wm89ssf";
 	// sets page to last page user was on
-	console.log(startDate, " ", endDate);
 	if (
 		localStorage.getItem("pageOffset") &&
 		localStorage.getItem("eventCurrentPage")
@@ -429,7 +430,6 @@ async function displayResults(
 				}
 
 				// append single event to DOM
-				console.log(events[0]);
 				singlePageEventContainer.innerHTML = `
 					<div>
 						<h2>${eventName}</h2>
@@ -550,7 +550,6 @@ async function displayResults(
 			if (currentPage === "/home.html") {
 				let { events } = xhr;
 				if (events.length != homeEventResults) {
-					console.log("does not equal");
 					homeEventResults++;
 					displayResults();
 				}
@@ -658,14 +657,11 @@ async function displayResults(
 					}
 				}
 
-				console.log(eventSearchStartDate);
 				eventSearchStartDate = new Date(eventSearchStartDate);
 				const eventDateUnchanged = eventSearchStartDate;
-				console.log(eventDateUnchanged);
 				// eventSearchStartDate = new Date(
 				// 	eventSearchStartDate.setMinutes(eventSearchStartDate.getMinutes() - 1)
 				// );
-				console.log(eventSearchStartDate);
 				eventSearchStartDate = new Date(
 					eventSearchStartDate.setSeconds(eventSearchStartDate.getSeconds() - 1)
 				);
@@ -674,9 +670,7 @@ async function displayResults(
 				);
 
 				eventSearchStartDate = new Date(eventSearchStartDate);
-				console.log(eventSearchStartDate);
 				eventSearchEndDate = new Date(eventSearchEndDate);
-				console.log(eventSearchEndDate);
 				// const eventSearchStartDateEnd = new Date(
 				// 	eventSearchStartDate.setDate(eventSearchStartDate.getDate() + 1)
 				// );
@@ -687,7 +681,6 @@ async function displayResults(
 					// let eventLocationCity = eventLocation.split(",");
 					// eventLocationCity = eventLocationCity[2].trim();
 					const eventSessions = event.sessions.sessions;
-					console.log(eventSessions);
 					const eventImage = event.images.images[0].original_url;
 					// return event sessions that are current
 					let currentSessions;
@@ -700,10 +693,7 @@ async function displayResults(
 								new Date(session.datetime_start) > eventSearchStartDate &&
 								new Date(session.datetime_start) < eventSearchEndDate
 						);
-						console.log(eventSearchStartDate);
-						console.log(currentSessions);
 						if (currentSessions.length === 0) {
-							console.log("no sessions");
 							noSessions = true;
 							currentSessions = eventSessions.filter(
 								(session) =>
@@ -711,21 +701,16 @@ async function displayResults(
 							);
 							latestCurrentSession =
 								currentSessions[currentSessions.length - 1].datetime_summary;
-							console.log(latestCurrentSession);
 						} else {
 							latestCurrentSession = currentSessions[0].datetime_start;
 							eventStartTime = new Date(latestCurrentSession);
 							if (eventStartTime < eventDateUnchanged) {
-								console.log(eventDateUnchanged);
 								latestCurrentSession = currentSessions[0].datetime_summary;
 								noSessions = true;
 							} else {
 								latestCurrentSession = currentSessions[0].datetime_start;
 								eventStartTime = new Date(latestCurrentSession);
-								console.log(eventStartTime);
 							}
-							console.log(eventStartTime);
-							console.log(eventSearchStartDate);
 						}
 					}
 
@@ -904,8 +889,6 @@ async function displayResults(
 					displayedEventsFirst = pageOffset + (eventCurrentPage - 1);
 					displayedEventsLast = displayedEventsFirst + eventResults;
 				}
-				console.log(resultsNumber);
-
 				if (localStorage.getItem("resultsNumber")) {
 					resultsNumber.innerHTML = JSON.parse(
 						localStorage.getItem("resultsNumber")
@@ -1002,7 +985,6 @@ function showFewerSessions() {
 
 	if (singleEventDes) {
 		window.scrollTo({ top: scrollPosition, behaviour: "smooth" });
-		console.log(singleEventDesScroll);
 	}
 }
 // Pagination
@@ -1690,7 +1672,6 @@ if (currentPage === "/Gallery.html") {
 		},
 	];
 	galleryVideosArr.forEach((video) => {
-		console.log(video);
 		const galleryInnerVideoContainer = document.createElement("div");
 		galleryInnerVideoContainer.classList.add("col-sm-4");
 		galleryInnerVideoContainer.innerHTML = `
