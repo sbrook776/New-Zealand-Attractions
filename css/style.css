@@ -1424,10 +1424,13 @@ svg .MapLink {
 	margin-bottom: 20px;
 }
 
- #restrictionsContainer div, #ticketOuterContainer div div div, #websiteContainer div, #singlePageEventLocation div, #singlePageEventDate div, #googleMapLocationName div{
+ /* #restrictionsContainer div, #ticketOuterContainer div div div, #websiteContainer div, #singlePageEventLocation div, #singlePageEventDate div, #googleMapLocationName div{
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
+} */
+#ticketOuterContainer div div div a {
+	margin-top: 20px;
 }
 
 #ticketOuterContainer div div, #sessionsContainer div div{
@@ -2451,6 +2454,9 @@ textarea {
 
 }
 @media (max-width: 426px) {
+#eventContainer {
+		width: 100%;
+	}
 .lightImgthumb {
 	height: 120px;
 }
@@ -2769,6 +2775,9 @@ textarea {
 /* put largest lower */
 
 @media (min-width: 768px){
+	.eventPagePanel .eventDescription {
+		font-size: 12px;
+	}
 	#contactContainerInner h3 {
 		font-size: 35px;
 	}
@@ -2944,8 +2953,20 @@ textarea {
 }
 
 /* Max width */
-/* Laptop */
+/* 4K */
 @media (max-width: 2561px){
+	#map {
+		height: 800px;
+	}
+	#eventContainer {
+		font-size: 18px;
+	}
+	.eventPanel {
+		font-size: 25px;
+	}
+	.eventPagePanel .eventDescription {
+		font-size: 25px;
+	}
 	.underline {
 		margin-top: 45px;
 	}
@@ -2962,6 +2983,18 @@ textarea {
 
 /* Laptop L*/
 @media (max-width: 1441px){
+	#map {
+		height: 600px;
+	}
+	.eventPanel .eventTitle {
+		font-size: 24px;
+	}
+	.eventPanel {
+		font-size: 18px;
+	}
+	.eventPagePanel .eventDescription {
+		font-size: 18px;
+	}
 	.underline {
 		margin-top: 30px;
 	}
@@ -2974,6 +3007,18 @@ textarea {
 }
 /* Tablet */
 @media (max-width: 1025px){
+	#map {
+		height: 400px;
+	}
+	.eventPanel .eventTitle {
+		font-size: 20px;
+	}
+	.eventPanel {
+		font-size: 15px;
+	}
+	.eventPagePanel .eventDescription {
+		font-size: 15px;
+	}
 	body {
 		padding-top: 100px!important;
 	}
@@ -2999,11 +3044,24 @@ textarea {
 }
 /* Mobile L */
 @media (max-width: 769px){
-	.eventPagePanel .eventTitle {
+	#eventContainer {
 		font-size: 16px;
 	}
+	#restrictionsContainer div, #ticketOuterContainer div div div, #websiteContainer div, #singlePageEventLocation div, #singlePageEventDate div, #googleMapLocationName div {
+		flex-wrap: wrap;
+		justify-content: start;
+	}
+	.eventPanel .eventTitle {
+		font-size: 16px;
+	}
+	.eventPanel {
+		font-size: 13px;
+	}
+	.eventPagePanel .eventDescription {
+		font-size: 13px;
+	}
 	.eventPagePanel {
-		font-size: 12px;
+		font-size: 13px;
 	}
 	#searchEvents {
 		width: 100%;
@@ -3085,6 +3143,12 @@ textarea {
 }
 /* Mobile M */
 @media (max-width: 426px){
+	.eventSingleImg {
+
+	}
+	#restrictionsContainer div, #ticketOuterContainer div div div, #websiteContainer div, #singlePageEventLocation div, #singlePageEventDate div, #googleMapLocationName div {
+		flex-wrap: nowrap;
+	}
 	.eventPagePanel .boxImage {
 		height: 200px;
 	}
@@ -3355,6 +3419,9 @@ width: 30% !important;
 }
 /* Mobile S */
 @media (max-width: 376px){
+	#map {
+		height: 250px;
+	}
 	#regionDropDown {
 		width: 100%;
 	}
@@ -3431,6 +3498,9 @@ width: 30% !important;
 	}
 }
 @media (max-width: 321px){
+	#contactContainerInner {
+		border: 20px solid #000;
+	}
 	#eventSearchForm {
 		padding: 20px;
 	}

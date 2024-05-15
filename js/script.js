@@ -411,7 +411,7 @@ async function displayResults(
 				const eventEndDateFull = 0;
 				let eventDateDisplay;
 				if (currentSessions.length > 1) {
-					eventDateDisplay = `${eventStartDayOfWeek} ${eventStartDay} ${eventStartMonthName} ${eventStartYear} ${eventStartTime} - ${eventEndTime} &nbsp;&nbsp;<a>See more session times</a>`;
+					eventDateDisplay = `${eventStartDayOfWeek} ${eventStartDay} ${eventStartMonthName} ${eventStartYear} ${eventStartTime} - ${eventEndTime} &nbsp;&nbsp;<br/><a>See more session times</a>`;
 				} else {
 					eventDateDisplay = `${eventStartDayOfWeek} ${eventStartDay} ${eventStartMonthName} ${eventStartYear} ${eventStartTime} - ${eventEndTime}`;
 				}
@@ -1321,6 +1321,46 @@ async function fetchAttractions() {
 				// append attractions to region
 			}
 		}
+	}
+	function regionHeaderSize() {
+		if (
+			window.matchMedia("(min-width: 427px) and (max-width: 767px)").matches
+		) {
+			const regionHeading = document.querySelectorAll(".bannerTitle");
+			regionHeading.forEach(function (heading) {
+				if (heading.textContent.includes("Manwatu-Wanganui")) {
+					heading.style.fontSize = "40px";
+				}
+			});
+		} else if (
+			window.matchMedia("(min-width: 377px) and (max-width: 426px)").matches
+		) {
+			const regionHeading = document.querySelectorAll(".bannerTitle");
+			regionHeading.forEach(function (heading) {
+				if (heading.textContent.includes("Manwatu-Wanganui")) {
+					heading.style.fontSize = "34px";
+				}
+			});
+		} else if (
+			window.matchMedia("(min-width: 322px) and (max-width: 376px)").matches
+		) {
+			const regionHeading = document.querySelectorAll(".bannerTitle");
+			regionHeading.forEach(function (heading) {
+				if (heading.textContent.includes("Manwatu-Wanganui")) {
+					heading.style.fontSize = "30px";
+				}
+			});
+		} else if (window.matchMedia("(max-width: 321px)").matches) {
+			const regionHeading = document.querySelectorAll(".bannerTitle");
+			regionHeading.forEach(function (heading) {
+				if (heading.textContent.includes("Manwatu-Wanganui")) {
+					heading.style.fontSize = "26px";
+				}
+			});
+		}
+	}
+	if (currentPage.includes("/NorthIslandAttractions.html")) {
+		regionHeaderSize();
 	}
 }
 fetchAttractions();
